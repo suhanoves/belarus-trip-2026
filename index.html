@@ -1,0 +1,834 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <title>Беларусь на Jimny · 13–24 июля 2026</title>
+  <style>
+    :root {
+      --ink: #17211b;
+      --muted: #617066;
+      --paper: #fbfaf5;
+      --card: #ffffff;
+      --line: #dfe5de;
+      --green: #265e43;
+      --green-soft: #e9f2ec;
+      --gold: #b98731;
+      --gold-soft: #fbf1dd;
+      --blue-soft: #e9f1f6;
+      --shadow: 0 12px 34px rgba(22, 44, 31, .08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 0%, #edf4ec 0, transparent 32rem),
+        radial-gradient(circle at 100% 14%, #f8ecd3 0, transparent 30rem),
+        var(--paper);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.58;
+    }
+
+    a { color: var(--green); text-underline-offset: 3px; }
+    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+
+    header {
+      padding: 56px 0 32px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--green);
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.35rem, 6vw, 5rem);
+      font-weight: 500;
+      letter-spacing: -.045em;
+      line-height: .98;
+    }
+
+    .lead {
+      max-width: 800px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .route-line {
+      margin-top: 26px;
+      padding: 18px 20px;
+      border: 1px solid #cddccf;
+      border-radius: 18px;
+      background: rgba(255,255,255,.7);
+      box-shadow: var(--shadow);
+      font-weight: 650;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-block: 1px solid rgba(38,94,67,.16);
+      background: rgba(251,250,245,.92);
+      backdrop-filter: blur(12px);
+    }
+
+    nav .wrap {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-block: 10px;
+      scrollbar-width: thin;
+    }
+
+    nav a, nav button {
+      flex: 0 0 auto;
+      padding: 7px 11px;
+      border: 0;
+      border-radius: 999px;
+      color: var(--ink);
+      background: transparent;
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    nav a:hover, nav button:hover { background: var(--green-soft); color: var(--green); }
+    nav button.active { color: white; background: var(--green); }
+    main { padding: 34px 0 70px; }
+
+    .notice,
+    .panel,
+    .day {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .notice {
+      margin-bottom: 24px;
+      padding: 20px 22px;
+      border-color: #e5c987;
+      background: var(--gold-soft);
+    }
+
+    .notice strong { color: #6f4b0e; }
+
+    .route-switcher {
+      margin-bottom: 30px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255,255,255,.86);
+      box-shadow: var(--shadow);
+    }
+
+    button { font: inherit; }
+    .arrow-btn {
+      border: 0;
+      border-radius: 11px;
+      color: var(--ink);
+      background: transparent;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .day-controls {
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr) 48px;
+      align-items: center;
+      gap: 10px;
+      margin-top: 13px;
+    }
+
+    .arrow-btn {
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--line);
+      background: white;
+      font-size: 1.55rem;
+    }
+
+    .arrow-btn:hover { color: white; border-color: var(--green); background: var(--green); }
+    .arrow-btn:disabled { opacity: .3; cursor: default; background: white; color: var(--ink); }
+    .current-day { text-align: center; }
+    .current-day strong { display: block; font-size: 1rem; }
+    .current-day span { display: block; color: var(--muted); font-size: .87rem; }
+
+    .calendar-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+    .calendar-heading h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.7rem; font-weight: 500; }
+    .calendar-heading span { color: var(--muted); font-size: .88rem; }
+    .mode-view { margin-top: 18px; }
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .calendar-day {
+      min-height: 112px;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: white;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .calendar-day:hover, .calendar-day.today { border-color: var(--green); background: var(--green-soft); }
+    .calendar-day .cal-date { display: block; color: var(--green); font-weight: 850; }
+    .calendar-day .cal-title { display: block; margin-top: 8px; font-size: .88rem; line-height: 1.28; }
+    .calendar-day .cal-drive { display: block; margin-top: 7px; color: var(--muted); font-size: .74rem; }
+
+    .summary-table-wrap { overflow-x: auto; }
+    .summary-route { min-width: 700px; }
+
+    .day:not(.active-day) { display: none; }
+    .app-page { display: none; }
+    body[data-page="calendar"] #calendarPage,
+    body[data-page="summary"] #summaryPage,
+    body[data-page="booking"] #booking,
+    body[data-page="stays"] #stays,
+    body[data-page="weather"] #weather { display: block; }
+
+    .section-title {
+      margin: 52px 0 18px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 500;
+      letter-spacing: -.025em;
+    }
+
+    .day {
+      display: grid;
+      grid-template-columns: 160px minmax(0, 1fr);
+      margin-bottom: 20px;
+      overflow: hidden;
+      scroll-margin-top: 78px;
+    }
+
+    .day-date {
+      padding: 24px 20px;
+      color: white;
+      background: var(--green);
+    }
+
+    .day-date .num {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 3.4rem;
+      line-height: .9;
+    }
+
+    .day-date .month { display: block; margin-top: 8px; font-weight: 800; }
+    .day-date .weekday { display: block; margin-top: 3px; opacity: .75; font-size: .9rem; }
+    .day-body { padding: 24px 26px 26px; }
+    .day h3 { margin: 0 0 8px; font-size: 1.42rem; line-height: 1.2; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 7px; margin: 12px 0 18px; }
+    .chip {
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: #38556a;
+      font-size: .83rem;
+      font-weight: 750;
+    }
+
+    .chip.stay { background: var(--green-soft); color: var(--green); }
+    .chip.food { background: var(--gold-soft); color: #795418; }
+    .map-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 6px;
+      padding: 7px 10px;
+      border-radius: 10px;
+      color: var(--green);
+      background: var(--green-soft);
+      font-size: .86rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .map-link:hover { color: white; background: var(--green); }
+    .day-grid { display: grid; grid-template-columns: 1.35fr .85fr; gap: 26px; }
+    .day h4 { margin: 2px 0 8px; color: var(--green); font-size: .9rem; letter-spacing: .07em; text-transform: uppercase; }
+    ul { margin: 0; padding-left: 1.2rem; }
+    li + li { margin-top: 5px; }
+    .facts p { margin: 0 0 12px; }
+    .facts p:last-child { margin-bottom: 0; }
+    .muted { color: var(--muted); }
+
+    .panel { padding: 24px 26px; scroll-margin-top: 78px; }
+    .panel + .panel { margin-top: 20px; }
+    .panel h3 { margin: 0 0 15px; font-size: 1.3rem; }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .check {
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fcfdfb;
+      cursor: pointer;
+    }
+
+    .check input { width: 19px; height: 19px; margin-top: 2px; accent-color: var(--green); }
+    .check span { display: block; }
+    .check small { display: block; margin-top: 2px; color: var(--muted); }
+    .check:has(input:checked) { background: var(--green-soft); opacity: .74; }
+    .check:has(input:checked) span { text-decoration: line-through; }
+
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 11px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; }
+    tr:last-child td { border-bottom: 0; }
+
+    .rules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .rule { padding: 16px; border-radius: 16px; background: var(--green-soft); }
+    .rule strong { display: block; margin-bottom: 4px; color: var(--green); }
+
+    footer { padding: 24px 0 48px; color: var(--muted); font-size: .88rem; }
+
+    @media (max-width: 760px) {
+      header { padding-top: 38px; }
+      .day { grid-template-columns: 1fr; }
+      .day-date { display: flex; align-items: baseline; gap: 8px; padding: 15px 20px; }
+      .day-date .num { font-size: 2.2rem; }
+      .day-date .month { margin: 0; }
+      .day-date .weekday { margin: 0 0 0 auto; }
+      .day-grid, .checklist, .rules { grid-template-columns: 1fr; }
+      .calendar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .day-body, .panel { padding: 20px; }
+      table { font-size: .88rem; }
+    }
+
+    @media print {
+      body { background: white; }
+      nav { display: none; }
+      .route-switcher { display: none; }
+      .wrap { width: 100%; }
+      header, main, footer { padding-inline: 14mm; }
+      .day, .panel, .notice { box-shadow: none; break-inside: avoid; }
+      .day { grid-template-columns: 120px 1fr; }
+      .checklist { grid-template-columns: repeat(2, 1fr); }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body data-page="calendar">
+  <header>
+    <div class="wrap">
+      <p class="eyebrow">Suzuki Jimny · двое · активный темп</p>
+      <h1>Беларусь,<br>13–24 июля 2026</h1>
+      <div class="route-line">Минск → Жодино → Мир → Несвиж → Брест → Беловежская пуща → Ружаны → Коссово → Гродно → Августовский канал → Берёзовка → Лида → Минск</div>
+    </div>
+  </header>
+
+  <nav aria-label="Навигация по маршруту">
+    <div class="wrap">
+      <button class="active" type="button" data-page-button="calendar">Календарь</button>
+      <button type="button" data-page-button="summary">Общая сводка</button>
+      <button type="button" data-page-button="booking">Бронирования</button>
+      <button type="button" data-page-button="stays">Ночёвки</button>
+      <button type="button" data-page-button="weather">Погода</button>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section class="app-page" id="calendarPage">
+    <section class="route-switcher" aria-label="Режим просмотра маршрута">
+      <div class="calendar-heading">
+        <h2>Календарь поездки</h2>
+        <span>Нажмите дату или листайте стрелками</span>
+      </div>
+      <div class="mode-view" id="calendarView">
+        <div class="calendar-grid" id="calendarGrid"></div>
+      </div>
+      <div class="day-controls">
+        <button class="arrow-btn" id="prevDay" type="button" aria-label="Предыдущий день">←</button>
+        <div class="current-day"><strong id="currentDayLabel"></strong><span id="currentDayRoute"></span></div>
+        <button class="arrow-btn" id="nextDay" type="button" aria-label="Следующий день">→</button>
+      </div>
+    </section>
+
+    <h2 class="section-title" id="daysTitle">Выбранный день</h2>
+
+    <article class="day" id="d13" data-date="13 июля" data-route="Минск" data-drive="пешком" data-night="Минск">
+      <div class="day-date"><span class="num">13</span><span class="month">июля</span><span class="weekday">понедельник</span></div>
+      <div class="day-body">
+        <h3>Первый вечер в Минске</h3>
+        <div class="chips"><span class="chip">пешком</span><span class="chip stay">ночь: Минск</span></div>
+        <div class="day-grid">
+          <div>
+            <h4>Прогулка</h4>
+            <ul>
+              <li>Верхний город, площадь Свободы и Ратуша.</li>
+              <li>Немига и Троицкое предместье.</li>
+              <li>Остров слёз и набережная Свислочи.</li>
+            </ul>
+          </div>
+          <div class="facts">
+            <h4>Статус</h4>
+            <p>Завершён.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="day" id="d14" data-date="14 июля" data-route="Минск → Мир" data-drive="≈100 км · 1:20–1:40" data-night="Мир · «Мирский Посад»">
+      <div class="day-date"><span class="num">14</span><span class="month">июля</span><span class="weekday">вторник · сегодня</span></div>
+      <div class="day-body">
+        <h3>БелАЗ автобусом, затем Минск → Мир на Jimny</h3>
+        <div class="chips">
+          <span class="chip">Jimny: ≈100 км · 1:20–1:40</span>
+          <span class="chip food">ужин: «Мiрум» — забронирован</span>
+          <span class="chip stay">ночь: «Мирский Посад» · оплачено</span>
+        </div>
+        <div class="day-grid">
+          <div>
+            <h4>План</h4>
+            <ul>
+              <li>Экскурсионный автобус забирает в Минске, везёт на БелАЗ и возвращает обратно.</li>
+              <li>После возвращения забрать Jimny и ехать напрямую в Мир. Через Жодино на машине не едем.</li>
+              <li>На получение машины, выезд из Минска и парковку заложить ещё 20–30 минут.</li>
+              <li>До ужина: площадь Мира, храмы, парк, пруд и внешний обход замка.</li>
+              <li>Интерьеры замка оставить на утро 15 июля.</li>
+            </ul>
+          </div>
+          <div class="facts">
+            <h4>Еда и ночь</h4>
+            <p><strong>Ужин:</strong> кафе «Мiрум», стол забронирован.</p>
+            <p><strong>Ночь:</strong> отель «Мирский Посад» — оплачен.</p>
+            <p class="muted">«Лiхтарiк 1876» не планируем: вторник и среда — выходные.</p>
+            <a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Минск,+Беларусь&amp;destination=Мирский+замок,+Мир,+Беларусь&amp;travelmode=driving" target="_blank" rel="noreferrer">↗ Минск → Мир в Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="day" id="d15" data-date="15 июля" data-route="Мир → Несвиж → Брест" data-drive="≈300 км · 4–4,5 ч" data-night="Брест · «Прибрежный»">
+      <div class="day-date"><span class="num">15</span><span class="month">июля</span><span class="weekday">среда</span></div>
+      <div class="day-body">
+        <h3>Мир → Несвиж → Брест</h3>
+        <div class="chips"><span class="chip">≈300 км · 4–4,5 ч</span><span class="chip food">обед: «Гетман»</span><span class="chip stay">ночь: «Прибрежный» · оплачено</span></div>
+        <div class="day-grid">
+          <div>
+            <h4>Расписание</h4>
+            <ul>
+              <li>08:30–09:45 — парк, пруд и виды Мирского замка.</li>
+              <li>10:00–12:00 — интерьеры <a href="https://mirzamak.by/" target="_blank" rel="noreferrer">Мирского замка</a>.</li>
+              <li>12:10–13:00 — переезд в Несвиж.</li>
+              <li>13:00–16:30 — <a href="https://niasvizh.by/" target="_blank" rel="noreferrer">Несвижский дворец</a> и парк.</li>
+              <li>16:30–17:15 — Ратуша, Слуцкая брама, костёл Божьего Тела.</li>
+              <li>17:15–20:30 — переезд в Брест и заселение.</li>
+            </ul>
+          </div>
+          <div class="facts">
+            <h4>Еда и ночь</h4>
+            <p><strong>Обед:</strong> «Гетман» в Несвижском дворце. Если обслуживание затягивается, не терять светлое время — ехать дальше.</p>
+            <p><strong>Ночь:</strong> мини-отель «Прибрежный» в Бресте — оплачен.</p>
+            <a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Мирский+замок,+Мир,+Беларусь&amp;destination=Брест,+Беларусь&amp;waypoints=Несвижский+замок,+Несвиж,+Беларусь&amp;travelmode=driving" target="_blank" rel="noreferrer">↗ Маршрут дня в Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="day" id="d16" data-date="16 июля" data-route="Брест" data-drive="до 40 км" data-night="Брест · «Прибрежный»">
+      <div class="day-date"><span class="num">16</span><span class="month">июля</span><span class="weekday">четверг</span></div>
+      <div class="day-body">
+        <h3>Брестская крепость и вечерний Брест</h3>
+        <div class="chips"><span class="chip">по городу: до 40 км</span><span class="chip food">ужин: «Карчма Будзьма»</span><span class="chip stay">ночь: «Прибрежный» · оплачено</span></div>
+        <div class="day-grid">
+          <div>
+            <h4>Расписание</h4>
+            <ul>
+              <li>08:30–11:00 — территория Брестской крепости.</li>
+              <li>11:00–12:30 — Музей обороны.</li>
+              <li>12:45–14:00 — обед.</li>
+              <li>14:15–16:15 — один объект: Железнодорожный музей, Пятый форт или «Берестье».</li>
+              <li>16:30–18:30 — отдых.</li>
+              <li>Вечером — Советская улица и фонарщик.</li>
+            </ul>
+          </div>
+          <div class="facts">
+            <h4>Выбор</h4>
+            <p><strong>Техника:</strong> Железнодорожный музей.</p>
+            <p><strong>Военная история:</strong> Пятый форт.</p>
+            <p><strong>Археология:</strong> «Берестье».</p>
+            <p class="muted">Все три после крепости не объединять.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="day" id="d17" data-date="17 июля" data-route="Брест → Беловежская пуща" data-drive="≈65 км · 1–1,25 ч" data-night="Пуща · гостиница №2">
+      <div class="day-date"><span class="num">17</span><span class="month">июля</span><span class="weekday">пятница</span></div>
+      <div class="day-body">
+        <h3>Брест → Беловежская пуща</h3>
+        <div class="chips"><span class="chip">≈65 км · 1–1,25 ч</span><span class="chip food">обед в Каменюках</span><span class="chip stay">гостиница №2 · оплачено</span></div>
+        <div class="day-grid">
+          <div>
+            <h4>Расписание</h4>
+            <ul>
+              <li>08:00 — выезд из Бреста.</li>
+              <li>09:15–10:30 — музей природы и оформление билетов.</li>
+              <li>Около 11:00 — обзорная автобусная экскурсия, 2–2,5 часа.</li>
+              <li>13:30–14:30 — обед.</li>
+              <li>15:00–17:00 — вольеры с животными.</li>
+              <li>17:30–19:30 — велосипед, экотропа или археологический музей под открытым небом.</li>
+            </ul>
+          </div>
+          <div class="facts">
+            <h4>Важно</h4>
+            <p>Автобусную экскурсию согласовать заранее: отправление зависит от набора группы. <a href="https://npbp.brestobl.com/adm/uslug.html" target="_blank" rel="noreferrer">Официальный заказ услуг</a>.</p>
+            <p><strong>Ночь:</strong> гостиница №2 — оплачена. Машина снимает вопрос расстояния до входа и парковки.</p>
+            <a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Брест,+Беларусь&amp;destination=Каменюки,+Беларусь&amp;travelmode=driving" target="_blank" rel="noreferrer">↗ Брест → Каменюки в Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="day" id="d18" data-date="18 июля" data-route="Пуща → Ружаны → Коссово → Гродно" data-drive="≈300 км · 4,5–5,5 ч" data-night="Гродно · Hostel City">
+      <div class="day-date"><span class="num">18</span><span class="month">июля</span><span class="weekday">суббота</span></div>
+      <div class="day-body">
+        <h3>Пуща → Ружаны → Коссово → Гродно</h3>
+        <div class="chips"><span class="chip">≈300 км · 4,5–5,5 ч</span><span class="chip food">ужин в Гродно</span><span class="chip stay">Hostel City · оплачено</span></div>
+        <div class="day-grid">
+          <div>
+            <h4>Расписание</h4>
+            <ul>
+              <li>08:30–10:30 — короткая прогулка по пуще.</li>
+              <li>10:45–12:30 — дорога в Ружаны.</li>
+              <li>12:30–13:30 — дворец Сапег: внешний осмотр и короткий музей.</li>
+              <li>14:15–16:15 — Коссовский дворец и усадьба Костюшко.</li>
+              <li>16:30–19:30 — переезд в Гродно.</li>
+            </ul>
+          </div>
+          <div class="facts">
+            <h4>Приоритет</h4>
+            <p>Если задержались или начался дождь, первым сокращать Ружаны. Коссово интереснее и лучше восстановлено.</p>
+            <p><strong>Ночь:</strong> Hostel City в Гродно — оплачен.</p>
+            <a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Каменюки,+Беларусь&amp;destination=Гродно,+Беларусь&amp;waypoints=Ружаны,+Беларусь%7CКоссовский+дворец,+Коссово,+Беларусь&amp;travelmode=driving" target="_blank" rel="noreferrer">↗ Маршрут дня в Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="day" id="d19" data-date="19 июля" data-route="Исторический Гродно" data-drive="пешком" data-night="Гродно · Hostel City">
+      <div class="day-date"><span class="num">19</span><span class="month">июля</span><span class="weekday">воскресенье</span></div>
+      <div class="day-body">
+        <h3>Исторический Гродно</h3>
+        <div class="chips"><span class="chip">машина отдыхает</span><span class="chip food">«У Груши»</span><span class="chip stay">Hostel City · оплачено</span></div>
+        <div class="day-grid">
+          <div>
+            <h4>Расписание</h4>
+            <ul>
+              <li>09:30–12:30 — Старый и Новый замки.</li>
+              <li>12:30–13:45 — обед.</li>
+              <li>14:00–14:45 — Коложская церковь.</li>
+              <li>15:00–16:00 — Фарный костёл.</li>
+              <li>16:00–18:30 — Советская улица, аптека-музей и дворики.</li>
+              <li>Вечером — набережная Немана.</li>
+            </ul>
+          </div>
+          <div class="facts">
+            <h4>Еда</h4>
+            <p><strong>«У Груши»</strong> — полноценная кухня и уютная обстановка, не просто ресторан ради вида.</p>
+            <p>На оба замка заложить 2,5–3 часа: это главный исторический блок дня.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="day" id="d20" data-date="20 июля" data-route="Гродно ↔ Августовский канал" data-drive="≈70–90 км · 1,5–2 ч" data-night="Гродно · Hostel City">
+      <div class="day-date"><span class="num">20</span><span class="month">июля</span><span class="weekday">понедельник</span></div>
+      <div class="day-body">
+        <h3>Августовский канал или дополнительный Гродно</h3>
+        <div class="chips"><span class="chip">≈70–90 км · 1,5–2 ч</span><span class="chip food">пикник + ужин в Гродно</span><span class="chip stay">Hostel City · оплачено</span></div>
+        <div class="day-grid">
+          <div>
+            <h4>Основной план</h4>
+            <ul>
+              <li>09:00–10:30 — неспешное утро.</li>
+              <li>11:00 — выезд к шлюзу Домбровка.</li>
+              <li>12:00–15:00 — шлюз, прогулка и теплоход, если рейс подтверждён.</li>
+              <li>15:30–17:00 — возвращение в Гродно.</li>
+              <li>Вечер — отдых и хороший ужин.</li>
+            </ul>
+          </div>
+          <div class="facts">
+            <h4>Оговорка</h4>
+            <p>Публичный рейс теплохода в понедельник не гарантирован. Подтвердить не позднее воскресенья. <a href="https://canal-tourism.com/news/opublikovan-preyskurant-tarifov-na-uslugi-avgustovskogo-kanala-na-2026-god/" target="_blank" rel="noreferrer">Тарифы сезона 2026</a>.</p>
+            <p>У Домбровки в основном быстрые перекусы. Взять воду и пикник, нормально поесть после возвращения.</p>
+            <a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Гродно,+Беларусь&amp;destination=Шлюз+Домбровка,+Беларусь&amp;travelmode=driving" target="_blank" rel="noreferrer">↗ Гродно → Домбровка в Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="day" id="d21" data-date="21 июля" data-route="Гродно → Берёзовка → Лида → Минск" data-drive="≈320–350 км · 4,5–5,5 ч" data-night="Минск · BonHotel">
+      <div class="day-date"><span class="num">21</span><span class="month">июля</span><span class="weekday">вторник</span></div>
+      <div class="day-body">
+        <h3>Гродно → стеклозавод «Неман» → Лида → Минск</h3>
+        <div class="chips"><span class="chip">≈320–350 км · 4,5–5,5 ч</span><span class="chip food">обед в Лиде</span><span class="chip stay">BonHotel · оплачено</span></div>
+        <div class="day-grid">
+          <div>
+            <h4>Расписание</h4>
+            <ul>
+              <li>08:15–08:30 — выезд из Гродно.</li>
+              <li>10:00–11:30 — производственная экскурсия на стеклозавод «Неман».</li>
+              <li>11:30–12:00 — фирменный магазин.</li>
+              <li>12:30–14:00 — Лида и обед.</li>
+              <li>14:00–15:30 — Лидский замок.</li>
+              <li>15:30–19:00 — переезд и заселение в Минске.</li>
+            </ul>
+          </div>
+          <div class="facts">
+            <h4>Важно</h4>
+            <p>Экскурсию по производственным цехам завода бронировать заранее.</p>
+            <p><strong>Ночь:</strong> BonHotel — оплачен. Jimny можно оставить у гостиницы, по Минску передвигаться на метро.</p>
+            <a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Гродно,+Беларусь&amp;destination=Минск,+Беларусь&amp;waypoints=Стеклозавод+Неман,+Берёзовка,+Беларусь%7CЛидский+замок,+Лида,+Беларусь&amp;travelmode=driving" target="_blank" rel="noreferrer">↗ Маршрут дня в Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="day" id="d22" data-date="22 июля" data-route="МТЗ и Минск" data-drive="метро и пешком" data-night="Минск · BonHotel">
+      <div class="day-date"><span class="num">22</span><span class="month">июля</span><span class="weekday">среда</span></div>
+      <div class="day-body">
+        <h3>МТЗ и прогулка по Минску</h3>
+        <div class="chips"><span class="chip">метро и пешком</span><span class="chip food">«Кухмiстр» или «Литвины»</span><span class="chip stay">BonHotel · оплачено</span></div>
+        <div class="day-grid">
+          <div>
+            <h4>Основной план</h4>
+            <ul>
+              <li>09:00 или 11:00 — экскурсия по производству МТЗ, около 1,5 часа.</li>
+              <li>Ещё 30–60 минут — выставка тракторов.</li>
+              <li>13:00–14:00 — обед.</li>
+              <li>После обеда — площадь Победы, проспект Независимости и парк Горького.</li>
+              <li>Вечером — центр Минска.</li>
+            </ul>
+          </div>
+          <div class="facts">
+            <h4>Запасной вариант</h4>
+            <p>Если МТЗ не состоится — «Линия Сталина» на машине. МТЗ и «Линию Сталина» в один день не объединять.</p>
+            <p>Экскурсию для физических лиц согласовать минимум за один рабочий день: <a href="https://mapindustrial-tourism.nicepage.io/" target="_blank" rel="noreferrer">промышленный туризм Беларуси</a>.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="day" id="d23" data-date="23 июля" data-route="Минск" data-drive="метро и пешком" data-night="Минск · BonHotel">
+      <div class="day-date"><span class="num">23</span><span class="month">июля</span><span class="weekday">четверг</span></div>
+      <div class="day-body">
+        <h3>Музей войны, Комаровка и спокойный финал</h3>
+        <div class="chips"><span class="chip">метро и пешком</span><span class="chip food">финальный ужин</span><span class="chip stay">BonHotel · оплачено</span></div>
+        <div class="day-grid">
+          <div>
+            <h4>Расписание</h4>
+            <ul>
+              <li>09:30–12:30 — Белорусский государственный музей истории Великой Отечественной войны.</li>
+              <li>13:00–14:00 — обед.</li>
+              <li>14:30–16:00 — Комаровский рынок.</li>
+              <li>16:00–18:00 — гостиница, стирка, упаковка и проверка машины.</li>
+              <li>Вечером — Национальная библиотека и смотровая площадка, если хорошая видимость.</li>
+            </ul>
+          </div>
+          <div class="facts">
+            <h4>Темп</h4>
+            <p>Не добавлять загородные объекты: это последний день перед дальней дорогой.</p>
+            <p>Время последнего подъёма на смотровую проверить в день посещения.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="day" id="d24" data-date="24–26 июля" data-route="Минск → Брянск → Воронеж → Ростов-на-Дону" data-drive="3 дня" data-night="по дороге">
+      <div class="day-date"><span class="num">24</span><span class="month">июля</span><span class="weekday">пятница</span></div>
+      <div class="day-body">
+        <h3>Обратная дорога в Ростов-на-Дону</h3>
+        <div class="chips"><span class="chip">три дня с запасом</span><span class="chip stay">26 июля: дома</span></div>
+        <div class="day-grid">
+          <div>
+            <h4>План по дням</h4>
+            <ul>
+              <li><strong>24 июля:</strong> старт в 06:00, Минск → Смоленск → Брянск, около 600 км и 8–9 часов. При усталости остановиться в Смоленске.</li>
+              <li><strong>25 июля:</strong> Брянск → Воронеж, около 450–550 км и 6–8 часов.</li>
+              <li><strong>26 июля:</strong> Воронеж → Ростов-на-Дону, около 570 км и 7–8 часов.</li>
+            </ul>
+          </div>
+          <div class="facts">
+            <h4>Jimny</h4>
+            <p>Заправляться уже при половине бака, особенно перед длинными участками. Маршрут и дорожную обстановку проверить утром каждого дня.</p>
+            <p>24 июля никаких достопримечательностей не планировать: задача — спокойно пройти первый перегон.</p>
+            <a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Минск,+Беларусь&amp;destination=Ростов-на-Дону,+Россия&amp;waypoints=Смоленск,+Россия%7CБрянск,+Россия%7CВоронеж,+Россия&amp;travelmode=driving" target="_blank" rel="noreferrer">↗ Общий путь домой в Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </article>
+    </section>
+
+    <section class="app-page panel" id="summaryPage">
+      <h3>Общая сводка маршрута</h3>
+      <div class="summary-table-wrap">
+        <table class="summary-route">
+          <thead><tr><th>Дата</th><th>Маршрут</th><th>За рулём</th><th>Ночь</th></tr></thead>
+          <tbody id="summaryBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="app-page panel" id="booking">
+      <h3>Бронирования и подтверждения</h3>
+      <div class="checklist">
+        <label class="check"><input type="checkbox" data-key="mirum"><span>Кафе «Мiрум»<small>14 июля · уже забронировано</small></span></label>
+        <label class="check"><input type="checkbox" data-key="mir-night"><span>Отель «Мирский Посад»<small>14 → 15 июля · оплачено</small></span></label>
+        <label class="check"><input type="checkbox" data-key="brest"><span>Мини-отель «Прибрежный»<small>15 → 17 июля · оплачено</small></span></label>
+        <label class="check"><input type="checkbox" data-key="pushcha-hotel"><span>Гостиница №2<small>17 → 18 июля · оплачено</small></span></label>
+        <label class="check"><input type="checkbox" data-key="grodno"><span>Hostel City<small>18 → 21 июля · оплачено</small></span></label>
+        <label class="check"><input type="checkbox" data-key="minsk"><span>BonHotel<small>21 → 24 июля · оплачено</small></span></label>
+        <label class="check"><input type="checkbox" data-key="pushcha-tour"><span>Автобус по пуще<small>17 июля · подтвердить рейс</small></span></label>
+        <label class="check"><input type="checkbox" data-key="neman"><span>Стеклозавод «Неман»<small>21 июля · производственная экскурсия</small></span></label>
+        <label class="check"><input type="checkbox" data-key="mtz"><span>Экскурсия на МТЗ<small>22 июля · минимум за рабочий день</small></span></label>
+        <label class="check"><input type="checkbox" data-key="canal"><span>Теплоход на канале<small>20 июля · проверить в воскресенье</small></span></label>
+      </div>
+    </section>
+
+    <section class="app-page panel" id="stays">
+      <h3>Ночёвки одним взглядом</h3>
+      <table>
+        <thead><tr><th>Дата</th><th>Место</th><th>Решение</th></tr></thead>
+        <tbody>
+          <tr><td>13 июля</td><td>Минск</td><td>Уже состоялось</td></tr>
+          <tr><td>14 июля</td><td>Мир</td><td>Отель «Мирский Посад» · оплачено</td></tr>
+          <tr><td>15–16 июля</td><td>Брест</td><td>Мини-отель «Прибрежный» · оплачено</td></tr>
+          <tr><td>17 июля</td><td>Беловежская пуща</td><td>Гостиница №2 · оплачено</td></tr>
+          <tr><td>18–20 июля</td><td>Гродно</td><td>Hostel City · оплачено</td></tr>
+          <tr><td>21–23 июля</td><td>Минск</td><td>BonHotel · оплачено</td></tr>
+          <tr><td>24 июля</td><td>Брянск / Смоленск</td><td>Выбор по усталости и дороге</td></tr>
+          <tr><td>25 июля</td><td>Воронеж</td><td>Транзитная ночь</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="app-page panel" id="weather">
+      <h3>Погода и правила корректировки</h3>
+      <div class="rules">
+        <div class="rule"><strong>Жара</strong>Брестскую крепость и замки начинать утром; воду держать в машине постоянно.</div>
+        <div class="rule"><strong>Дождь</strong>Первым сокращать Ружаны, затем прогулку или теплоход на канале. Музеи оставлять.</div>
+        <div class="rule"><strong>Усталость</strong>Не объединять все музеи Бреста, не ставить МТЗ и «Линию Сталина» в один день.</div>
+      </div>
+      <p class="muted" style="margin-bottom:0">Прогноз дальше чем на 3–4 дня проверять заново каждое утро. Время работы музеев и последние входы также перепроверять в день посещения.</p>
+    </section>
+  </main>
+
+  <script>
+    const days = [...document.querySelectorAll('.day')];
+    let currentIndex = Number(localStorage.getItem('belarus-trip-2026:day-index'));
+    if (!Number.isInteger(currentIndex) || currentIndex < 0 || currentIndex >= days.length) currentIndex = 1;
+
+    const currentDayLabel = document.getElementById('currentDayLabel');
+    const currentDayRoute = document.getElementById('currentDayRoute');
+    const prevDay = document.getElementById('prevDay');
+    const nextDay = document.getElementById('nextDay');
+
+    function selectDay(index, scroll = false) {
+      currentIndex = Math.max(0, Math.min(days.length - 1, index));
+      days.forEach((day, i) => day.classList.toggle('active-day', i === currentIndex));
+      const day = days[currentIndex];
+      currentDayLabel.textContent = day.dataset.date + ' · ' + day.querySelector('.weekday').textContent;
+      currentDayRoute.textContent = day.dataset.route;
+      prevDay.disabled = currentIndex === 0;
+      nextDay.disabled = currentIndex === days.length - 1;
+      localStorage.setItem('belarus-trip-2026:day-index', String(currentIndex));
+      document.querySelectorAll('.calendar-day').forEach((cell, i) => cell.classList.toggle('today', i === currentIndex));
+      if (scroll) document.querySelector('.route-switcher').scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
+
+    function setPage(page, scroll = true) {
+      document.body.dataset.page = page;
+      document.querySelectorAll('[data-page-button]').forEach((button) => button.classList.toggle('active', button.dataset.pageButton === page));
+      localStorage.setItem('belarus-trip-2026:page', page);
+      if (scroll) window.scrollTo({top: document.querySelector('main').offsetTop - 54, behavior: 'smooth'});
+    }
+
+    document.getElementById('calendarGrid').innerHTML = days.map((day, index) => `
+      <button class="calendar-day" type="button" data-calendar-index="${index}">
+        <span class="cal-date">${day.dataset.date}</span>
+        <span class="cal-title">${day.dataset.route}</span>
+        <span class="cal-drive">${day.dataset.drive}</span>
+      </button>`).join('');
+
+    document.getElementById('summaryBody').innerHTML = days.map((day) => `
+      <tr><td><strong>${day.dataset.date}</strong></td><td>${day.dataset.route}</td><td>${day.dataset.drive}</td><td>${day.dataset.night}</td></tr>`).join('');
+
+    prevDay.addEventListener('click', () => selectDay(currentIndex - 1));
+    nextDay.addEventListener('click', () => selectDay(currentIndex + 1));
+    document.querySelectorAll('[data-page-button]').forEach((button) => button.addEventListener('click', () => setPage(button.dataset.pageButton)));
+    document.querySelectorAll('[data-calendar-index]').forEach((cell) => cell.addEventListener('click', () => {
+      selectDay(Number(cell.dataset.calendarIndex), true);
+    }));
+
+    document.addEventListener('keydown', (event) => {
+      if (document.body.dataset.page !== 'calendar') return;
+      if (event.key === 'ArrowLeft') selectDay(currentIndex - 1);
+      if (event.key === 'ArrowRight') selectDay(currentIndex + 1);
+    });
+
+    selectDay(currentIndex);
+    setPage(localStorage.getItem('belarus-trip-2026:page') || 'calendar', false);
+
+    const prefix = 'belarus-trip-2026:';
+    const hotelConfirmation = prefix + 'confirmed-hotels-v1';
+    if (localStorage.getItem(hotelConfirmation) === null) {
+      ['mir-night', 'brest'].forEach((key) => localStorage.setItem(prefix + key, '1'));
+      localStorage.setItem(hotelConfirmation, '1');
+    }
+    const hotelConfirmationV2 = prefix + 'confirmed-hotels-v2';
+    if (localStorage.getItem(hotelConfirmationV2) === null) {
+      ['pushcha-hotel', 'grodno', 'minsk'].forEach((key) => localStorage.setItem(prefix + key, '1'));
+      localStorage.setItem(hotelConfirmationV2, '1');
+    }
+    document.querySelectorAll('[data-key]').forEach((box) => {
+      const key = prefix + box.dataset.key;
+      box.checked = localStorage.getItem(key) === '1';
+      box.addEventListener('change', () => localStorage.setItem(key, box.checked ? '1' : '0'));
+    });
+    const booked = document.querySelector('[data-key="mirum"]');
+    if (localStorage.getItem(prefix + 'mirum') === null) {
+      booked.checked = true;
+      localStorage.setItem(prefix + 'mirum', '1');
+    }
+  </script>
+</body>
+</html>
