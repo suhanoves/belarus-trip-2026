@@ -317,6 +317,68 @@
     .rule { padding: 16px; border-radius: 16px; background: var(--green-soft); }
     .rule strong { display: block; margin-bottom: 4px; color: var(--green); }
 
+    .weather-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin: -4px 0 18px;
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    .weather-alerts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .weather-alert {
+      padding: 13px 14px;
+      border-radius: 14px;
+      background: var(--green-soft);
+      font-size: .88rem;
+    }
+
+    .weather-alert.rain { background: var(--blue-soft); }
+    .weather-alert.heat { background: var(--gold-soft); }
+    .weather-alert strong { display: block; margin-bottom: 2px; }
+
+    .weather-calendar {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .weather-card {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: #fcfdfb;
+    }
+
+    .weather-card.near { border-color: #a9c9b3; }
+    .weather-card.far { background: #fafafa; }
+    .weather-date { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+    .weather-date strong { font-family: Georgia, "Times New Roman", serif; font-size: 1.25rem; font-weight: 500; }
+    .weather-place { margin: 2px 0 12px; min-height: 2.5em; color: var(--muted); font-size: .82rem; line-height: 1.3; }
+    .confidence { padding: 3px 6px; border-radius: 999px; background: var(--green-soft); color: var(--green); font-size: .65rem; font-weight: 850; text-transform: uppercase; }
+    .confidence.prelim { background: #efefef; color: #666; }
+
+    .weather-period {
+      display: grid;
+      grid-template-columns: 49px 1fr;
+      gap: 8px;
+      padding: 8px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .weather-period:first-of-type { border-top: 0; }
+    .weather-period b { color: var(--green); font-size: .74rem; text-transform: uppercase; }
+    .weather-period span { font-size: .84rem; line-height: 1.3; }
+
     footer { padding: 24px 0 48px; color: var(--muted); font-size: .88rem; }
 
     @media (max-width: 760px) {
@@ -326,8 +388,9 @@
       .day-date .num { font-size: 2.2rem; }
       .day-date .month { margin: 0; }
       .day-date .weekday { margin: 0 0 0 auto; }
-      .day-grid, .checklist, .rules { grid-template-columns: 1fr; }
+      .day-grid, .checklist, .rules, .weather-alerts { grid-template-columns: 1fr; }
       .calendar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .weather-calendar { grid-template-columns: 1fr; }
       .day-body, .panel { padding: 20px; }
       table { font-size: .88rem; }
     }
@@ -742,13 +805,106 @@
     </section>
 
     <section class="app-page panel" id="weather">
-      <h3>Погода и правила корректировки</h3>
-      <div class="rules">
-        <div class="rule"><strong>Жара</strong>Брестскую крепость и замки начинать утром; воду держать в машине постоянно.</div>
-        <div class="rule"><strong>Дождь</strong>Первым сокращать Ружаны, затем прогулку или теплоход на канале. Музеи оставлять.</div>
-        <div class="rule"><strong>Усталость</strong>Не объединять все музеи Бреста, не ставить МТЗ и «Линию Сталина» в один день.</div>
+      <h3>Погода по маршруту</h3>
+      <div class="weather-meta"><span>Обновлено 14 июля · время местное</span><span>После 21 июля прогноз предварительный</span></div>
+      <div class="weather-alerts">
+        <div class="weather-alert heat"><strong>☀️ Жара</strong>Брест 16 июля: до +30 °C. Крепость начинать утром.</div>
+        <div class="weather-alert"><strong>🌿 Лучший день</strong>Пуща 17 июля: солнечно, около +24 °C.</div>
+        <div class="weather-alert rain"><strong>🌧 Главный риск</strong>21 июля: дождь в Лиде и по дороге в Минск.</div>
       </div>
-      <p class="muted" style="margin-bottom:0">Прогноз дальше чем на 3–4 дня проверять заново каждое утро. Время работы музеев и последние входы также перепроверять в день посещения.</p>
+      <div class="weather-calendar">
+        <article class="weather-card near">
+          <div class="weather-date"><strong>14 июля</strong><span class="confidence">точнее</span></div>
+          <div class="weather-place">Минск → Мир</div>
+          <div class="weather-period"><b>Утро</b><span>⛅ +20…+23 · облака с солнцем</span></div>
+          <div class="weather-period"><b>День</b><span>🌦 +24…+26 · короткие ливни</span></div>
+          <div class="weather-period"><b>Вечер</b><span>☁️ +24→+20 · облачно, в Мире свежее</span></div>
+        </article>
+        <article class="weather-card near">
+          <div class="weather-date"><strong>15 июля</strong><span class="confidence">точнее</span></div>
+          <div class="weather-place">Мир → Несвиж → Брест</div>
+          <div class="weather-period"><b>Утро</b><span>🌤 +14…+23 · преимущественно сухо</span></div>
+          <div class="weather-period"><b>День</b><span>🌦 +25…+28 · возможны ливни</span></div>
+          <div class="weather-period"><b>Вечер</b><span>🌤 +24→+20 · у Бреста яснее</span></div>
+        </article>
+        <article class="weather-card near">
+          <div class="weather-date"><strong>16 июля</strong><span class="confidence">точнее</span></div>
+          <div class="weather-place">Брест</div>
+          <div class="weather-period"><b>Утро</b><span>🌤 +16…+24 · солнце в дымке</span></div>
+          <div class="weather-period"><b>День</b><span>☀️ +26…+30 · жарко и сухо</span></div>
+          <div class="weather-period"><b>Вечер</b><span>☀️ +27→+20 · ясно</span></div>
+        </article>
+        <article class="weather-card near">
+          <div class="weather-date"><strong>17 июля</strong><span class="confidence">точнее</span></div>
+          <div class="weather-place">Брест → Беловежская пуща</div>
+          <div class="weather-period"><b>Утро</b><span>☀️ +12…+21 · солнечно</span></div>
+          <div class="weather-period"><b>День</b><span>☀️ +22…+24 · комфортно</span></div>
+          <div class="weather-period"><b>Вечер</b><span>🌤 +22→+16 · сухо</span></div>
+        </article>
+        <article class="weather-card near">
+          <div class="weather-date"><strong>18 июля</strong><span class="confidence">точнее</span></div>
+          <div class="weather-place">Пуща → Коссово → Гродно</div>
+          <div class="weather-period"><b>Утро</b><span>⛅ +18…+26 · облачность растёт</span></div>
+          <div class="weather-period"><b>День</b><span>🌦 +27…+29 · ливень около полудня</span></div>
+          <div class="weather-period"><b>Вечер</b><span>☁️ +24→+19 · возможен поздний дождь</span></div>
+        </article>
+        <article class="weather-card">
+          <div class="weather-date"><strong>19 июля</strong><span class="confidence">средне</span></div>
+          <div class="weather-place">Гродно</div>
+          <div class="weather-period"><b>Утро</b><span>⛅ +17…+20 · переменная облачность</span></div>
+          <div class="weather-period"><b>День</b><span>☁️ +21…+24 · преимущественно сухо</span></div>
+          <div class="weather-period"><b>Вечер</b><span>🌦 +20→+17 · возможен короткий дождь</span></div>
+        </article>
+        <article class="weather-card">
+          <div class="weather-date"><strong>20 июля</strong><span class="confidence">средне</span></div>
+          <div class="weather-place">Гродно → Августовский канал</div>
+          <div class="weather-period"><b>Утро</b><span>☁️ +14…+16 · облачно</span></div>
+          <div class="weather-period"><b>День</b><span>☁️ +17…+21 · облачно, без жары</span></div>
+          <div class="weather-period"><b>Вечер</b><span>☁️ +20→+16 · облачно</span></div>
+        </article>
+        <article class="weather-card">
+          <div class="weather-date"><strong>21 июля</strong><span class="confidence">средне</span></div>
+          <div class="weather-place">Гродно → Берёзовка → Лида → Минск</div>
+          <div class="weather-period"><b>Утро</b><span>🌧 +12…+17 · дождь</span></div>
+          <div class="weather-period"><b>День</b><span>🌧 +17…+21 · дождь с перерывами</span></div>
+          <div class="weather-period"><b>Вечер</b><span>🌧 +20→+15 · дождливо</span></div>
+        </article>
+        <article class="weather-card far">
+          <div class="weather-date"><strong>22 июля</strong><span class="confidence prelim">предв.</span></div>
+          <div class="weather-place">Минск · МТЗ</div>
+          <div class="weather-period"><b>Утро</b><span>🌧 +9…+18 · дождь и ливни</span></div>
+          <div class="weather-period"><b>День</b><span>🌧 +18…+20 · временами дождь</span></div>
+          <div class="weather-period"><b>Вечер</b><span>🌧 +17→+15 · дождь усилится поздно</span></div>
+        </article>
+        <article class="weather-card far">
+          <div class="weather-date"><strong>23 июля</strong><span class="confidence prelim">предв.</span></div>
+          <div class="weather-place">Минск</div>
+          <div class="weather-period"><b>Утро</b><span>☁️ +11…+18 · облачно</span></div>
+          <div class="weather-period"><b>День</b><span>🌦 +19…+23 · дождь в начале дня</span></div>
+          <div class="weather-period"><b>Вечер</b><span>🌦 +22→+16 · дождь, затем прояснение</span></div>
+        </article>
+        <article class="weather-card far">
+          <div class="weather-date"><strong>24 июля</strong><span class="confidence prelim">предв.</span></div>
+          <div class="weather-place">Минск → Смоленск → Брянск</div>
+          <div class="weather-period"><b>Утро</b><span>☁️ +11…+15 · облачно</span></div>
+          <div class="weather-period"><b>День</b><span>☁️ +18…+23 · облачно, возможен дождь</span></div>
+          <div class="weather-period"><b>Вечер</b><span>⛅ около +18 · облака с прояснениями</span></div>
+        </article>
+        <article class="weather-card far">
+          <div class="weather-date"><strong>25 июля</strong><span class="confidence prelim">предв.</span></div>
+          <div class="weather-place">Брянск → Воронеж</div>
+          <div class="weather-period"><b>Утро</b><span>🌤 +13…+17 · преимущественно сухо</span></div>
+          <div class="weather-period"><b>День</b><span>🌤 +20…+22 · солнце с облаками</span></div>
+          <div class="weather-period"><b>Вечер</b><span>🌤 +20→+15 · без существенных осадков</span></div>
+        </article>
+        <article class="weather-card far">
+          <div class="weather-date"><strong>26 июля</strong><span class="confidence prelim">предв.</span></div>
+          <div class="weather-place">Воронеж → Ростов-на-Дону</div>
+          <div class="weather-period"><b>Утро</b><span>⛈ +20…+24 · возможна гроза</span></div>
+          <div class="weather-period"><b>День</b><span>🌤 +26…+29 · влажно и тепло</span></div>
+          <div class="weather-period"><b>Вечер</b><span>⛅ +27→+23 · переменная облачность</span></div>
+        </article>
+      </div>
     </section>
   </main>
 
