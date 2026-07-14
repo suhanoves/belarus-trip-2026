@@ -6,7 +6,7 @@
   <meta name="color-scheme" content="light">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
-  <title>Беларусь на Jimny · 13–24 июля 2026</title>
+  <title>Беларусь на Jimny · 13–26 июля 2026</title>
   <style>
     :root {
       --ink: #17211b;
@@ -281,6 +281,37 @@
     .facts p:last-child { margin-bottom: 0; }
     .muted { color: var(--muted); }
 
+    .timeline {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .timeline li {
+      display: grid;
+      grid-template-columns: 94px minmax(0, 1fr);
+      gap: 10px;
+      padding: 9px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .timeline li:first-child { padding-top: 0; border-top: 0; }
+    .timeline time { color: var(--green); font-weight: 850; font-variant-numeric: tabular-nums; }
+    .timeline span { min-width: 0; }
+
+    .food-list { display: grid; gap: 9px; }
+    .food-option {
+      padding: 10px 11px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fcfdfb;
+    }
+
+    .food-option strong { display: block; color: #795418; }
+    .food-option small { display: block; margin-top: 2px; color: var(--muted); line-height: 1.35; }
+    .day-note { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
+    .day-note p { margin: 0 0 7px; }
+
     .panel { padding: 24px 26px; scroll-margin-top: 78px; }
     .panel + .panel { margin-top: 20px; }
     .panel h3 { margin: 0 0 15px; font-size: 1.3rem; }
@@ -389,6 +420,7 @@
       .day-date .month { margin: 0; }
       .day-date .weekday { margin: 0 0 0 auto; }
       .day-grid, .checklist, .rules, .weather-alerts { grid-template-columns: 1fr; }
+      .timeline li { grid-template-columns: 82px minmax(0, 1fr); }
       .calendar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .weather-calendar { grid-template-columns: 1fr; }
       .day-body, .panel { padding: 20px; }
@@ -412,8 +444,8 @@
   <header>
     <div class="wrap">
       <p class="eyebrow">Suzuki Jimny · двое · активный темп</p>
-      <h1>Беларусь,<br>13–24 июля 2026</h1>
-      <div class="route-line">Минск → Жодино → Мир → Несвиж → Брест → Беловежская пуща → Ружаны → Коссово → Гродно → Августовский канал → Берёзовка → Лида → Минск</div>
+      <h1>Беларусь и дорога домой,<br>13–26 июля 2026</h1>
+      <div class="route-line">Минск → Жодино → Мир → Несвиж → Брест → Беловежская пуща → Ружаны → Коссово → Гродно → Августовский канал → Берёзовка → Лида → Минск → Смоленск → Брянск → Воронеж → Ростов-на-Дону</div>
     </div>
   </header>
 
@@ -450,19 +482,26 @@
       <div class="day-date"><span class="num">13</span><span class="month">июля</span><span class="weekday">понедельник</span></div>
       <div class="day-body">
         <h3>Первый вечер в Минске</h3>
-        <div class="chips"><span class="chip">пешком</span><span class="chip stay">ночь: Минск</span></div>
+        <div class="chips"><span class="chip">пешком</span><span class="chip food">ужин в центре</span><span class="chip stay">ночь: Минск</span></div>
         <div class="day-grid">
           <div>
-            <h4>Прогулка</h4>
-            <ul>
-              <li>Верхний город, площадь Свободы и Ратуша.</li>
-              <li>Немига и Троицкое предместье.</li>
-              <li>Остров слёз и набережная Свислочи.</li>
-            </ul>
+            <h4>План на день</h4>
+            <ol class="timeline">
+              <li><time>18:00</time><span>Начало прогулки: проспект Независимости и Верхний город.</span></li>
+              <li><time>18:45</time><span>Площадь Свободы, Ратуша, кафедральный собор и обзор старых кварталов.</span></li>
+              <li><time>19:30</time><span>Немига, Троицкое предместье и Остров слёз.</span></li>
+              <li><time>20:30</time><span>Ужин в центре.</span></li>
+              <li><time>22:00</time><span>Набережная Свислочи и возвращение в гостиницу.</span></li>
+            </ol>
           </div>
           <div class="facts">
-            <h4>Статус</h4>
-            <p>Завершён.</p>
+            <h4>Где поесть</h4>
+            <div class="food-list">
+              <div class="food-option"><strong>«Кухмiстр»</strong><small>Белорусская и литвинская кухня; хороший первый основательный ужин.</small></div>
+              <div class="food-option"><strong>«Лiтвiны»</strong><small>Современная подача местной кухни, большие порции.</small></div>
+              <div class="food-option"><strong>«Камянiца»</strong><small>Историческая атмосфера и мясные блюда; удобно, если хочется долгого ужина.</small></div>
+            </div>
+            <div class="day-note"><p><strong>Статус:</strong> день завершён.</p></div>
           </div>
         </div>
       </div>
@@ -479,20 +518,27 @@
         </div>
         <div class="day-grid">
           <div>
-            <h4>План</h4>
-            <ul>
-              <li>Экскурсионный автобус забирает в Минске, везёт на БелАЗ и возвращает обратно.</li>
-              <li>После возвращения забрать Jimny и ехать напрямую в Мир. Через Жодино на машине не едем.</li>
-              <li>На получение машины, выезд из Минска и парковку заложить ещё 20–30 минут.</li>
-              <li>До ужина: площадь Мира, храмы, парк, пруд и внешний обход замка.</li>
-              <li>Интерьеры замка оставить на утро 15 июля.</li>
-            </ul>
+            <h4>План на день</h4>
+            <ol class="timeline">
+              <li><time>07:00</time><span>Завтрак и выход к месту сбора экскурсионного автобуса.</span></li>
+              <li><time>по билету</time><span>Автобусная поездка Минск → Жодино, экскурсия по БелАЗу и возвращение в Минск.</span></li>
+              <li><time>+ 30 мин</time><span>После возвращения забрать Jimny, загрузиться и выехать из Минска.</span></li>
+              <li><time>1:20–1:40</time><span>Переезд напрямую Минск → Мир без заезда в Жодино.</span></li>
+              <li><time>до ужина</time><span>Заселение в «Мирский Посад», площадь, храмы, парк, пруд и внешний круг вокруг замка.</span></li>
+              <li><time>вечер</time><span>Ужин в «Мiруме», затем короткая прогулка по подсвеченному Миру.</span></li>
+            </ol>
           </div>
           <div class="facts">
-            <h4>Еда и ночь</h4>
-            <p><strong>Ужин:</strong> кафе «Мiрум», стол забронирован.</p>
-            <p><strong>Ночь:</strong> отель «Мирский Посад» — оплачен.</p>
-            <p class="muted">«Лiхтарiк 1876» не планируем: вторник и среда — выходные.</p>
+            <h4>Где поесть</h4>
+            <div class="food-list">
+              <div class="food-option"><strong>«Мiрум» · основной выбор</strong><small>Стол уже забронирован на вечер; европейская и белорусская кухня.</small></div>
+              <div class="food-option"><strong>Ресторан «Мирский Посад»</strong><small>Запасной вариант прямо при гостинице, если возвращение с БелАЗа задержится.</small></div>
+              <div class="food-option"><strong>«Княжеский двор»</strong><small>Атмосферный ресторан у замка; подходит для позднего обеда до заселения.</small></div>
+            </div>
+            <div class="day-note">
+              <p><strong>Ночь:</strong> «Мирский Посад» · оплачено.</p>
+              <p class="muted">«Лiхтарiк 1876» закрыт во вторник и среду.</p>
+            </div>
             <a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Минск,+Беларусь&amp;destination=Мирский+замок,+Мир,+Беларусь&amp;travelmode=driving" target="_blank" rel="noreferrer">↗ Минск → Мир в Google Maps</a>
           </div>
         </div>
@@ -503,23 +549,31 @@
       <div class="day-date"><span class="num">15</span><span class="month">июля</span><span class="weekday">среда</span></div>
       <div class="day-body">
         <h3>Мир → Несвиж → Брест</h3>
-        <div class="chips"><span class="chip">≈300 км · 4–4,5 ч</span><span class="chip food">обед: «Гетман»</span><span class="chip stay">ночь: «Прибрежный» · оплачено</span></div>
+        <div class="chips"><span class="chip">≈300 км · 4–4,5 ч</span><span class="chip food">обед в Несвиже · ужин в Бресте</span><span class="chip stay">ночь: «Прибрежный» · оплачено</span></div>
         <div class="day-grid">
           <div>
-            <h4>Расписание</h4>
-            <ul>
-              <li>08:30–09:45 — парк, пруд и виды Мирского замка.</li>
-              <li>10:00–12:00 — интерьеры <a href="https://mirzamak.by/" target="_blank" rel="noreferrer">Мирского замка</a>.</li>
-              <li>12:10–13:00 — переезд в Несвиж.</li>
-              <li>13:00–16:30 — <a href="https://niasvizh.by/" target="_blank" rel="noreferrer">Несвижский дворец</a> и парк.</li>
-              <li>16:30–17:15 — Ратуша, Слуцкая брама, костёл Божьего Тела.</li>
-              <li>17:15–20:30 — переезд в Брест и заселение.</li>
-            </ul>
+            <h4>План на день</h4>
+            <ol class="timeline">
+              <li><time>07:30</time><span>Завтрак, сбор вещей и выезд к замку.</span></li>
+              <li><time>08:30–09:45</time><span>Парк, пруд, часовня-усыпальница и фотографии Мирского замка без дневной толпы.</span></li>
+              <li><time>10:00–12:00</time><span>Интерьеры <a href="https://mirzamak.by/" target="_blank" rel="noreferrer">Мирского замка</a>, башни и экспозиции.</span></li>
+              <li><time>12:10–12:55</time><span>Переезд Мир → Несвиж и парковка возле дворцового комплекса.</span></li>
+              <li><time>13:00–14:00</time><span>Обед в Несвиже.</span></li>
+              <li><time>14:00–16:15</time><span><a href="https://niasvizh.by/" target="_blank" rel="noreferrer">Несвижский дворец</a>, парадные залы и прогулка по парку.</span></li>
+              <li><time>16:15–17:00</time><span>Ратуша, Слуцкая брама и костёл Божьего Тела.</span></li>
+              <li><time>17:00–20:30</time><span>Переезд в Брест с одной остановкой на заправку и кофе.</span></li>
+              <li><time>20:30–21:30</time><span>Заселение в «Прибрежный» и поздний ужин.</span></li>
+            </ol>
           </div>
           <div class="facts">
-            <h4>Еда и ночь</h4>
-            <p><strong>Обед:</strong> «Гетман» в Несвижском дворце. Если обслуживание затягивается, не терять светлое время — ехать дальше.</p>
-            <p><strong>Ночь:</strong> мини-отель «Прибрежный» в Бресте — оплачен.</p>
+            <h4>Где поесть</h4>
+            <div class="food-list">
+              <div class="food-option"><strong>«Гетман» · Несвиж</strong><small>Самый атмосферный обед при дворце; закладывать около часа.</small></div>
+              <div class="food-option"><strong>«Скарбница» · Несвиж</strong><small>Местная кухня в центре; запасной вариант, если в «Гетмане» очередь.</small></div>
+              <div class="food-option"><strong>«Харчэўня на Замкавай» · Несвиж</strong><small>Более быстрый обед без долгой ресторанной посадки.</small></div>
+              <div class="food-option"><strong>Times Café · Брест</strong><small>Подходит для позднего ужина после заселения; европейское меню и кофе.</small></div>
+            </div>
+            <div class="day-note"><p><strong>Ночь:</strong> мини-отель «Прибрежный» · оплачено.</p></div>
             <a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Мирский+замок,+Мир,+Беларусь&amp;destination=Брест,+Беларусь&amp;waypoints=Несвижский+замок,+Несвиж,+Беларусь&amp;travelmode=driving" target="_blank" rel="noreferrer">↗ Маршрут дня в Google Maps</a>
           </div>
         </div>
@@ -530,25 +584,34 @@
       <div class="day-date"><span class="num">16</span><span class="month">июля</span><span class="weekday">четверг</span></div>
       <div class="day-body">
         <h3>Брестская крепость и вечерний Брест</h3>
-        <div class="chips"><span class="chip">по городу: до 40 км</span><span class="chip food">ужин: «Карчма Будзьма»</span><span class="chip stay">ночь: «Прибрежный» · оплачено</span></div>
+        <div class="chips"><span class="chip">по городу: до 40 км</span><span class="chip food">обед и ужин в Бресте</span><span class="chip stay">ночь: «Прибрежный» · оплачено</span></div>
         <div class="day-grid">
           <div>
-            <h4>Расписание</h4>
-            <ul>
-              <li>08:30–11:00 — территория Брестской крепости.</li>
-              <li>11:00–12:30 — Музей обороны.</li>
-              <li>12:45–14:00 — обед.</li>
-              <li>14:15–16:15 — один объект: Железнодорожный музей, Пятый форт или «Берестье».</li>
-              <li>16:30–18:30 — отдых.</li>
-              <li>Вечером — Советская улица и фонарщик.</li>
-            </ul>
+            <h4>План на день</h4>
+            <ol class="timeline">
+              <li><time>07:30</time><span>Завтрак и выезд до наступления жары.</span></li>
+              <li><time>08:15–10:45</time><span>Брестская крепость: главный вход, «Мужество», площадь Церемониалов, руины Белого дворца и Холмские ворота.</span></li>
+              <li><time>11:00–12:30</time><span>Музей обороны Брестской крепости.</span></li>
+              <li><time>12:45–14:00</time><span>Обед и передышка в помещении.</span></li>
+              <li><time>14:15–16:15</time><span>Один объект по настроению: Железнодорожный музей, Пятый форт или археологический музей «Берестье».</span></li>
+              <li><time>16:30–18:15</time><span>Возвращение в гостиницу, душ и отдых в самый жаркий период.</span></li>
+              <li><time>18:30–20:00</time><span>Улица Советская, памятник Тысячелетию Бреста и старый центр.</span></li>
+              <li><time>20:00–21:15</time><span>Ужин.</span></li>
+              <li><time>после 21:00</time><span>Фонарщик и вечерняя Советская улица.</span></li>
+            </ol>
           </div>
           <div class="facts">
-            <h4>Выбор</h4>
-            <p><strong>Техника:</strong> Железнодорожный музей.</p>
-            <p><strong>Военная история:</strong> Пятый форт.</p>
-            <p><strong>Археология:</strong> «Берестье».</p>
-            <p class="muted">Все три после крепости не объединять.</p>
+            <h4>Где поесть</h4>
+            <div class="food-list">
+              <div class="food-option"><strong>«У озера»</strong><small>Спокойный полноценный обед после крепости; восточноевропейская кухня.</small></div>
+              <div class="food-option"><strong>«Карчма Будзьма»</strong><small>Белорусские блюда и мясо; основной вариант для ужина.</small></div>
+              <div class="food-option"><strong>Jules Verne</strong><small>Средиземноморская и европейская кухня; выбрать, если хочется отдохнуть от драников.</small></div>
+              <div class="food-option"><strong>Meatra</strong><small>Стейки и мясные блюда, современная подача; столик вечером лучше заказать.</small></div>
+            </div>
+            <div class="day-note">
+              <p><strong>Если выбирать музей:</strong> техника — Железнодорожный; военная история — Пятый форт; археология — «Берестье».</p>
+              <p><strong>Ночь:</strong> «Прибрежный» · оплачено.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -558,23 +621,34 @@
       <div class="day-date"><span class="num">17</span><span class="month">июля</span><span class="weekday">пятница</span></div>
       <div class="day-body">
         <h3>Брест → Беловежская пуща</h3>
-        <div class="chips"><span class="chip">≈65 км · 1–1,25 ч</span><span class="chip food">обед в Каменюках</span><span class="chip stay">гостиница №2 · оплачено</span></div>
+        <div class="chips"><span class="chip">≈65 км · 1–1,25 ч</span><span class="chip food">веломаршрут 27 км</span><span class="chip stay">гостиница №2 · оплачено</span></div>
         <div class="day-grid">
           <div>
-            <h4>Расписание</h4>
-            <ul>
-              <li>08:00 — выезд из Бреста.</li>
-              <li>09:15–10:30 — музей природы и оформление билетов.</li>
-              <li>Около 11:00 — обзорная автобусная экскурсия, 2–2,5 часа.</li>
-              <li>13:30–14:30 — обед.</li>
-              <li>15:00–17:00 — вольеры с животными.</li>
-              <li>17:30–19:30 — велосипед, экотропа или археологический музей под открытым небом.</li>
-            </ul>
+            <h4>План на день</h4>
+            <ol class="timeline">
+              <li><time>07:00</time><span>Завтрак, вода и перекус с собой.</span></li>
+              <li><time>08:00–09:10</time><span>Переезд Брест → Каменюки, парковка и оформление билетов.</span></li>
+              <li><time>09:15–10:15</time><span>Музей природы: животные, лесные экосистемы и подготовка к маршруту.</span></li>
+              <li><time>10:15–10:45</time><span>Получение двух велосипедов, оформление маршрута и проверка тормозов.</span></li>
+              <li><time>10:45–14:45</time><span>Веломаршрут «Большое путешествие», 27 км: старые дубравы, Лядское озеро, дуб-патриарх, сосна-долгожитель и пограничная застава.</span></li>
+              <li><time>15:00–16:00</time><span>Поздний обед и отдых.</span></li>
+              <li><time>16:15–18:00</time><span>Вольеры с зубрами, оленями, волками и другими животными.</span></li>
+              <li><time>18:15–19:00</time><span>Заселение в гостиницу №2, душ и отдых.</span></li>
+              <li><time>19:30</time><span>Ужин в Каменюках.</span></li>
+            </ol>
           </div>
           <div class="facts">
-            <h4>Важно</h4>
-            <p>Автобусную экскурсию согласовать заранее: отправление зависит от набора группы. <a href="https://npbp.brestobl.com/adm/uslug.html" target="_blank" rel="noreferrer">Официальный заказ услуг</a>.</p>
-            <p><strong>Ночь:</strong> гостиница №2 — оплачена. Машина снимает вопрос расстояния до входа и парковки.</p>
+            <h4>Где поесть</h4>
+            <div class="food-list">
+              <div class="food-option"><strong>Кафе «Сосны»</strong><small>Удобный вариант для позднего обеда после велосипеда: суп, горячее, без долгой посадки.</small></div>
+              <div class="food-option"><strong>Ресторан «Беловежская пуща»</strong><small>Основной ужин: местная кухня, грибы, дичь и белорусские блюда.</small></div>
+              <div class="food-option"><strong>«Беловежское поместье»</strong><small>Домашняя белорусская кухня; ехать только после звонка и подтверждения обслуживания.</small></div>
+              <div class="food-option"><strong>Перекус на маршрут</strong><small>Вода, бананы, орехи и бутерброды купить в Бресте: четыре часа без нормального кафе.</small></div>
+            </div>
+            <div class="day-note">
+              <p><strong>Забронировать:</strong> два велосипеда и маршрут «Большое путешествие».</p>
+              <p><strong>Ночь:</strong> гостиница №2 · оплачено.</p>
+            </div>
             <a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Брест,+Беларусь&amp;destination=Каменюки,+Беларусь&amp;travelmode=driving" target="_blank" rel="noreferrer">↗ Брест → Каменюки в Google Maps</a>
           </div>
         </div>
@@ -585,22 +659,35 @@
       <div class="day-date"><span class="num">18</span><span class="month">июля</span><span class="weekday">суббота</span></div>
       <div class="day-body">
         <h3>Пуща → Ружаны → Коссово → Гродно</h3>
-        <div class="chips"><span class="chip">≈300 км · 4,5–5,5 ч</span><span class="chip food">ужин в Гродно</span><span class="chip stay">Hostel City · оплачено</span></div>
+        <div class="chips"><span class="chip">≈300 км · 4,5–5,5 ч</span><span class="chip food">обед в Коссово · ужин в Гродно</span><span class="chip stay">Hostel City · оплачено</span></div>
         <div class="day-grid">
           <div>
-            <h4>Расписание</h4>
-            <ul>
-              <li>08:30–10:30 — короткая прогулка по пуще.</li>
-              <li>10:45–12:30 — дорога в Ружаны.</li>
-              <li>12:30–13:30 — дворец Сапег: внешний осмотр и короткий музей.</li>
-              <li>14:15–16:15 — Коссовский дворец и усадьба Костюшко.</li>
-              <li>16:30–19:30 — переезд в Гродно.</li>
-            </ul>
+            <h4>План на день</h4>
+            <ol class="timeline">
+              <li><time>07:30</time><span>Завтрак, выселение и загрузка Jimny.</span></li>
+              <li><time>08:30–10:15</time><span>Переезд Каменюки → Ружаны.</span></li>
+              <li><time>10:15–11:30</time><span>Дворец Сапег: парадный двор, восстановленные корпуса и короткая музейная экспозиция.</span></li>
+              <li><time>11:30–12:00</time><span>Переезд в Коссово.</span></li>
+              <li><time>12:00–13:00</time><span>Обед возле дворца.</span></li>
+              <li><time>13:00–15:15</time><span>Дворец Пусловских, интерьеры, парк и обзорная площадка.</span></li>
+              <li><time>15:15–16:00</time><span>Музей-усадьба Тадеуша Костюшко.</span></li>
+              <li><time>16:00–19:15</time><span>Переезд Коссово → Гродно с остановкой на кофе и заправку.</span></li>
+              <li><time>19:15–20:00</time><span>Заселение в Hostel City.</span></li>
+              <li><time>20:15</time><span>Ужин в Гродно.</span></li>
+            </ol>
           </div>
           <div class="facts">
-            <h4>Приоритет</h4>
-            <p>Если задержались или начался дождь, первым сокращать Ружаны. Коссово интереснее и лучше восстановлено.</p>
-            <p><strong>Ночь:</strong> Hostel City в Гродно — оплачен.</p>
+            <h4>Где поесть</h4>
+            <div class="food-list">
+              <div class="food-option"><strong>«Граф Пусловский» · Коссово</strong><small>Ресторан во дворце; атмосферно, но может быть медленнее и дороже.</small></div>
+              <div class="food-option"><strong>Кафе «У Тадеуша» · Коссово</strong><small>Белорусская кухня возле усадьбы; практичнее для обеда по маршруту.</small></div>
+              <div class="food-option"><strong>«У Груши» · Гродно</strong><small>Спокойный ужин после дороги, полноценная кухня и уютная посадка.</small></div>
+              <div class="food-option"><strong>Gastrobar Houdini · Гродно</strong><small>Поздний ужин, стейки и азиатско-европейское меню; работает допоздна.</small></div>
+            </div>
+            <div class="day-note">
+              <p><strong>При задержке:</strong> первым сокращать музей в Ружанах, но оставить внешний осмотр.</p>
+              <p><strong>Ночь:</strong> Hostel City · оплачено.</p>
+            </div>
             <a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Каменюки,+Беларусь&amp;destination=Гродно,+Беларусь&amp;waypoints=Ружаны,+Беларусь%7CКоссовский+дворец,+Коссово,+Беларусь&amp;travelmode=driving" target="_blank" rel="noreferrer">↗ Маршрут дня в Google Maps</a>
           </div>
         </div>
@@ -611,23 +698,35 @@
       <div class="day-date"><span class="num">19</span><span class="month">июля</span><span class="weekday">воскресенье</span></div>
       <div class="day-body">
         <h3>Исторический Гродно</h3>
-        <div class="chips"><span class="chip">машина отдыхает</span><span class="chip food">«У Груши»</span><span class="chip stay">Hostel City · оплачено</span></div>
+        <div class="chips"><span class="chip">машина отдыхает</span><span class="chip food">завтрак, обед и ужин в центре</span><span class="chip stay">Hostel City · оплачено</span></div>
         <div class="day-grid">
           <div>
-            <h4>Расписание</h4>
-            <ul>
-              <li>09:30–12:30 — Старый и Новый замки.</li>
-              <li>12:30–13:45 — обед.</li>
-              <li>14:00–14:45 — Коложская церковь.</li>
-              <li>15:00–16:00 — Фарный костёл.</li>
-              <li>16:00–18:30 — Советская улица, аптека-музей и дворики.</li>
-              <li>Вечером — набережная Немана.</li>
-            </ul>
+            <h4>План на день</h4>
+            <ol class="timeline">
+              <li><time>08:00–09:00</time><span>Завтрак в центре и прогулка к замковой горе.</span></li>
+              <li><time>09:30–11:15</time><span>Старый замок: экспозиция, стены, виды на Неман и Новый замок.</span></li>
+              <li><time>11:15–12:30</time><span>Новый замок и дворцовая площадь.</span></li>
+              <li><time>12:30–13:45</time><span>Обед без спешки.</span></li>
+              <li><time>14:00–14:45</time><span>Коложская церковь и высокий берег Немана.</span></li>
+              <li><time>15:00–15:45</time><span>Фарный костёл Святого Франциска Ксаверия.</span></li>
+              <li><time>15:45–17:30</time><span>Аптека-музей, Советская улица, старые дворики и Большая хоральная синагога снаружи.</span></li>
+              <li><time>17:30–19:00</time><span>Кофе, отдых в Hostel City или свободная прогулка.</span></li>
+              <li><time>19:30–21:00</time><span>Ужин.</span></li>
+              <li><time>21:00</time><span>Набережная Немана и вечерние виды замков.</span></li>
+            </ol>
           </div>
           <div class="facts">
-            <h4>Еда</h4>
-            <p><strong>«У Груши»</strong> — полноценная кухня и уютная обстановка, не просто ресторан ради вида.</p>
-            <p>На оба замка заложить 2,5–3 часа: это главный исторический блок дня.</p>
+            <h4>Где поесть</h4>
+            <div class="food-list">
+              <div class="food-option"><strong>«У Груши»</strong><small>Завтрак или обед: яйца, выпечка, полноценные горячие блюда и спокойная атмосфера.</small></div>
+              <div class="food-option"><strong>Nasha Kava</strong><small>Хороший кофе и лёгкий завтрак перед замками.</small></div>
+              <div class="food-option"><strong>Restaurant Babka</strong><small>Белорусско-польские блюда; удачный основной обед в историческом центре.</small></div>
+              <div class="food-option"><strong>Gastrobar Houdini</strong><small>Основной вечерний вариант: стейки, азиатские блюда, коктейли и позднее закрытие.</small></div>
+            </div>
+            <div class="day-note">
+              <p><strong>Главный блок:</strong> на два замка оставить не меньше трёх часов.</p>
+              <p><strong>Ночь:</strong> Hostel City · оплачено.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -640,19 +739,32 @@
         <div class="chips"><span class="chip">≈70–90 км · 1,5–2 ч</span><span class="chip food">пикник + ужин в Гродно</span><span class="chip stay">Hostel City · оплачено</span></div>
         <div class="day-grid">
           <div>
-            <h4>Основной план</h4>
-            <ul>
-              <li>09:00–10:30 — неспешное утро.</li>
-              <li>11:00 — выезд к шлюзу Домбровка.</li>
-              <li>12:00–15:00 — шлюз, прогулка и теплоход, если рейс подтверждён.</li>
-              <li>15:30–17:00 — возвращение в Гродно.</li>
-              <li>Вечер — отдых и хороший ужин.</li>
-            </ul>
+            <h4>План на день</h4>
+            <ol class="timeline">
+              <li><time>08:30–09:30</time><span>Завтрак и проверка подтверждения теплохода.</span></li>
+              <li><time>09:30–10:15</time><span>Купить воду, фрукты и еду для пикника: на канале ресторанов почти нет.</span></li>
+              <li><time>10:30–11:30</time><span>Переезд Гродно → шлюз Домбровка.</span></li>
+              <li><time>11:30–12:15</time><span>Осмотр шлюза, прогулка по берегу и получение билетов.</span></li>
+              <li><time>по рейсу</time><span>Прогулка на теплоходе со шлюзованием; ориентировочно 1,5–2 часа.</span></li>
+              <li><time>после рейса</time><span>Пикник и ещё 30–45 минут прогулки вдоль канала.</span></li>
+              <li><time>15:30–16:30</time><span>Возвращение в Гродно.</span></li>
+              <li><time>16:30–18:30</time><span>Отдых, душ и свободное время.</span></li>
+              <li><time>19:00–20:30</time><span>Ужин в Гродно.</span></li>
+              <li><time>после 20:30</time><span>Советская улица или набережная по настроению.</span></li>
+            </ol>
           </div>
           <div class="facts">
-            <h4>Оговорка</h4>
-            <p>Публичный рейс теплохода в понедельник не гарантирован. Подтвердить не позднее воскресенья. <a href="https://canal-tourism.com/news/opublikovan-preyskurant-tarifov-na-uslugi-avgustovskogo-kanala-na-2026-god/" target="_blank" rel="noreferrer">Тарифы сезона 2026</a>.</p>
-            <p>У Домбровки в основном быстрые перекусы. Взять воду и пикник, нормально поесть после возвращения.</p>
+            <h4>Где поесть</h4>
+            <div class="food-list">
+              <div class="food-option"><strong>Just Coffee или Nasha Kava</strong><small>Завтрак перед выездом и кофе с собой.</small></div>
+              <div class="food-option"><strong>Пикник на канале</strong><small>Сыр, мясные изделия, хлеб, овощи и вода купить в Гродно; на Домбровке только сезонные павильоны.</small></div>
+              <div class="food-option"><strong>«Королевская охота»</strong><small>Европейская и центральноевропейская кухня; спокойный ужин после возвращения.</small></div>
+              <div class="food-option"><strong>Forno или Gastrobar Werden</strong><small>Пицца, паста и европейские блюда, если местной кухни уже достаточно.</small></div>
+            </div>
+            <div class="day-note">
+              <p>Публичный рейс в понедельник подтвердить заранее. <a href="https://canal-tourism.com/news/opublikovan-preyskurant-tarifov-na-uslugi-avgustovskogo-kanala-na-2026-god/" target="_blank" rel="noreferrer">Тарифы сезона 2026</a>.</p>
+              <p><strong>Ночь:</strong> Hostel City · оплачено.</p>
+            </div>
             <a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Гродно,+Беларусь&amp;destination=Шлюз+Домбровка,+Беларусь&amp;travelmode=driving" target="_blank" rel="noreferrer">↗ Гродно → Домбровка в Google Maps</a>
           </div>
         </div>
@@ -663,23 +775,35 @@
       <div class="day-date"><span class="num">21</span><span class="month">июля</span><span class="weekday">вторник</span></div>
       <div class="day-body">
         <h3>Гродно → стеклозавод «Неман» → Лида → Минск</h3>
-        <div class="chips"><span class="chip">≈320–350 км · 4,5–5,5 ч</span><span class="chip food">обед в Лиде</span><span class="chip stay">BonHotel · оплачено</span></div>
+        <div class="chips"><span class="chip">≈320–350 км · 4,5–5,5 ч</span><span class="chip food">обед в Лиде · ужин в Минске</span><span class="chip stay">BonHotel · оплачено</span></div>
         <div class="day-grid">
           <div>
-            <h4>Расписание</h4>
-            <ul>
-              <li>08:15–08:30 — выезд из Гродно.</li>
-              <li>10:00–11:30 — производственная экскурсия на стеклозавод «Неман».</li>
-              <li>11:30–12:00 — фирменный магазин.</li>
-              <li>12:30–14:00 — Лида и обед.</li>
-              <li>14:00–15:30 — Лидский замок.</li>
-              <li>15:30–19:00 — переезд и заселение в Минске.</li>
-            </ul>
+            <h4>План на день</h4>
+            <ol class="timeline">
+              <li><time>07:00–08:00</time><span>Завтрак, выселение и проверка дождевого снаряжения.</span></li>
+              <li><time>08:15–09:45</time><span>Переезд Гродно → Берёзовка.</span></li>
+              <li><time>10:00–11:30</time><span>Стеклозавод «Неман»: производство и работа стеклодувов — только если экскурсия подтверждена на вторник.</span></li>
+              <li><time>11:30–12:00</time><span>Музей стекла и фирменный магазин.</span></li>
+              <li><time>12:00–12:30</time><span>Переезд в Лиду.</span></li>
+              <li><time>12:30–13:45</time><span>Обед в центре Лиды.</span></li>
+              <li><time>14:00–15:30</time><span>Лидский замок, двор и экспозиции.</span></li>
+              <li><time>15:30–18:30</time><span>Переезд Лида → Минск с заправкой.</span></li>
+              <li><time>18:30–19:30</time><span>Заселение в BonHotel, парковка Jimny и отдых.</span></li>
+              <li><time>20:00</time><span>Ужин возле гостиницы или в центре на метро.</span></li>
+            </ol>
           </div>
           <div class="facts">
-            <h4>Важно</h4>
-            <p>Экскурсию по производственным цехам завода бронировать заранее.</p>
-            <p><strong>Ночь:</strong> BonHotel — оплачен. Jimny можно оставить у гостиницы, по Минску передвигаться на метро.</p>
+            <h4>Где поесть</h4>
+            <div class="food-list">
+              <div class="food-option"><strong>«Гедымін» · Лида</strong><small>Центральное расположение и нормальный полноценный обед перед замком.</small></div>
+              <div class="food-option"><strong>«Пан Хмелю» · Лида</strong><small>Горячие блюда и пивное меню; выбирать при наличии времени на спокойную посадку.</small></div>
+              <div class="food-option"><strong>BonBistro · Минск</strong><small>Самый удобный поздний ужин непосредственно при BonHotel.</small></div>
+              <div class="food-option"><strong>«Лiтвiны» · Минск</strong><small>Если останутся силы доехать на метро: белорусская кухня современного уровня.</small></div>
+            </div>
+            <div class="day-note">
+              <p><strong>Критично:</strong> подтвердить, что производство принимает туристов во вторник 21 июля.</p>
+              <p><strong>Ночь:</strong> BonHotel · оплачено.</p>
+            </div>
             <a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Гродно,+Беларусь&amp;destination=Минск,+Беларусь&amp;waypoints=Стеклозавод+Неман,+Берёзовка,+Беларусь%7CЛидский+замок,+Лида,+Беларусь&amp;travelmode=driving" target="_blank" rel="noreferrer">↗ Маршрут дня в Google Maps</a>
           </div>
         </div>
@@ -690,22 +814,34 @@
       <div class="day-date"><span class="num">22</span><span class="month">июля</span><span class="weekday">среда</span></div>
       <div class="day-body">
         <h3>МТЗ и прогулка по Минску</h3>
-        <div class="chips"><span class="chip">метро и пешком</span><span class="chip food">«Кухмiстр» или «Литвины»</span><span class="chip stay">BonHotel · оплачено</span></div>
+        <div class="chips"><span class="chip">метро и пешком</span><span class="chip food">обед и ужин в Минске</span><span class="chip stay">BonHotel · оплачено</span></div>
         <div class="day-grid">
           <div>
-            <h4>Основной план</h4>
-            <ul>
-              <li>09:00 или 11:00 — экскурсия по производству МТЗ, около 1,5 часа.</li>
-              <li>Ещё 30–60 минут — выставка тракторов.</li>
-              <li>13:00–14:00 — обед.</li>
-              <li>После обеда — площадь Победы, проспект Независимости и парк Горького.</li>
-              <li>Вечером — центр Минска.</li>
-            </ul>
+            <h4>План на день</h4>
+            <ol class="timeline">
+              <li><time>07:30–08:30</time><span>Завтрак в BonHotel.</span></li>
+              <li><time>09:30</time><span>Метро «Пушкинская» → «Тракторный завод» и подход к проходной.</span></li>
+              <li><time>11:00–12:30</time><span>Экскурсия «МТЗ — место, где рождаются BELARUSы»: действующее производство и сборочный конвейер.</span></li>
+              <li><time>12:30–13:15</time><span>Выставка тракторов, музей и сувениры.</span></li>
+              <li><time>13:45–15:00</time><span>Переезд в центр и обед.</span></li>
+              <li><time>15:00–16:00</time><span>Площадь Победы и начало проспекта Независимости.</span></li>
+              <li><time>16:00–17:30</time><span>Парк Горького, набережная Свислочи и цирк снаружи.</span></li>
+              <li><time>17:30–19:00</time><span>Гостиница и отдых: на день прогнозируется дождь.</span></li>
+              <li><time>19:30–21:00</time><span>Ужин и вечерний центр Минска.</span></li>
+            </ol>
           </div>
           <div class="facts">
-            <h4>Запасной вариант</h4>
-            <p>Если МТЗ не состоится — «Линия Сталина» на машине. МТЗ и «Линию Сталина» в один день не объединять.</p>
-            <p>Экскурсию для физических лиц согласовать минимум за один рабочий день: <a href="https://mapindustrial-tourism.nicepage.io/" target="_blank" rel="noreferrer">промышленный туризм Беларуси</a>.</p>
+            <h4>Где поесть</h4>
+            <div class="food-list">
+              <div class="food-option"><strong>BonBistro</strong><small>Завтрак без лишней логистики; удобно и для ужина после дождливого дня.</small></div>
+              <div class="food-option"><strong>«Лiтвiны»</strong><small>Основной вариант обеда после МТЗ: локальная кухня, большие порции.</small></div>
+              <div class="food-option"><strong>«Кухмiстр»</strong><small>Историческая белорусская кухня; лучший выбор для заранее забронированного ужина.</small></div>
+              <div class="food-option"><strong>«Камянiца»</strong><small>Мясо и традиционные блюда в старом интерьере; альтернатива «Кухмiстру».</small></div>
+            </div>
+            <div class="day-note">
+              <p>Слот МТЗ в плане — 11:00; после подтверждения время можно сдвинуть. <a href="https://mapindustrial-tourism.nicepage.io/" target="_blank" rel="noreferrer">Условия записи</a>.</p>
+              <p><strong>Если МТЗ отменят:</strong> «Линия Сталина» на машине, без попытки совместить оба объекта.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -715,46 +851,144 @@
       <div class="day-date"><span class="num">23</span><span class="month">июля</span><span class="weekday">четверг</span></div>
       <div class="day-body">
         <h3>Музей войны, Комаровка и спокойный финал</h3>
-        <div class="chips"><span class="chip">метро и пешком</span><span class="chip food">финальный ужин</span><span class="chip stay">BonHotel · оплачено</span></div>
+        <div class="chips"><span class="chip">метро и пешком</span><span class="chip food">обед в центре · финальный ужин</span><span class="chip stay">BonHotel · оплачено</span></div>
         <div class="day-grid">
           <div>
-            <h4>Расписание</h4>
-            <ul>
-              <li>09:30–12:30 — Белорусский государственный музей истории Великой Отечественной войны.</li>
-              <li>13:00–14:00 — обед.</li>
-              <li>14:30–16:00 — Комаровский рынок.</li>
-              <li>16:00–18:00 — гостиница, стирка, упаковка и проверка машины.</li>
-              <li>Вечером — Национальная библиотека и смотровая площадка, если хорошая видимость.</li>
-            </ul>
+            <h4>План на день</h4>
+            <ol class="timeline">
+              <li><time>07:30–08:30</time><span>Завтрак и выезд на метро.</span></li>
+              <li><time>09:30–12:30</time><span>Белорусский государственный музей истории Великой Отечественной войны; не спешить через основные залы.</span></li>
+              <li><time>12:45–14:00</time><span>Обед.</span></li>
+              <li><time>14:15–15:45</time><span>Комаровский рынок: сыры, мясные изделия, сладости и продукты в дорогу.</span></li>
+              <li><time>16:15–18:15</time><span>Возвращение в BonHotel, стирка, упаковка, проверка масла, шин и топлива.</span></li>
+              <li><time>18:30–19:15</time><span>Метро до Национальной библиотеки.</span></li>
+              <li><time>19:15–20:15</time><span>Библиотека и смотровая площадка, если дождь и облачность позволяют.</span></li>
+              <li><time>20:30–22:00</time><span>Финальный ужин и возвращение в гостиницу.</span></li>
+              <li><time>22:00</time><span>Подготовить одежду и воду на старт в 06:00.</span></li>
+            </ol>
           </div>
           <div class="facts">
-            <h4>Темп</h4>
-            <p>Не добавлять загородные объекты: это последний день перед дальней дорогой.</p>
-            <p>Время последнего подъёма на смотровую проверить в день посещения.</p>
+            <h4>Где поесть</h4>
+            <div class="food-list">
+              <div class="food-option"><strong>«Кухмiстр»</strong><small>Хороший финальный обед, если не посетили накануне.</small></div>
+              <div class="food-option"><strong>«Лiтвiны»</strong><small>Местная кухня и предсказуемо сытный обед перед рынком.</small></div>
+              <div class="food-option"><strong>«Камянiца»</strong><small>Финальный ужин с белорусской кухней; бронировать вечерний столик.</small></div>
+              <div class="food-option"><strong>BonBistro</strong><small>Практичный вариант, если вечером сильный дождь или нужно раньше лечь.</small></div>
+            </div>
+            <div class="day-note">
+              <p>Комаровка — для покупок и дегустации, но не вместо нормального обеда.</p>
+              <p><strong>Ночь:</strong> BonHotel · оплачено.</p>
+            </div>
           </div>
         </div>
       </div>
     </article>
 
-    <article class="day" id="d24" data-date="24–26 июля" data-route="Минск → Брянск → Воронеж → Ростов-на-Дону" data-drive="3 дня" data-night="по дороге">
+    <article class="day" id="d24" data-date="24 июля" data-route="Минск → Смоленск → Брянск" data-drive="≈600 км · 8–9 ч" data-night="Брянск / Смоленск">
       <div class="day-date"><span class="num">24</span><span class="month">июля</span><span class="weekday">пятница</span></div>
       <div class="day-body">
-        <h3>Обратная дорога в Ростов-на-Дону</h3>
-        <div class="chips"><span class="chip">три дня с запасом</span><span class="chip stay">26 июля: дома</span></div>
+        <h3>Минск → Смоленск → Брянск</h3>
+        <div class="chips"><span class="chip">≈600 км · 8–9 ч</span><span class="chip food">обед в Смоленске · ужин в Брянске</span><span class="chip stay">ночь по самочувствию</span></div>
         <div class="day-grid">
           <div>
-            <h4>План по дням</h4>
-            <ul>
-              <li><strong>24 июля:</strong> старт в 06:00, Минск → Смоленск → Брянск, около 600 км и 8–9 часов. При усталости остановиться в Смоленске.</li>
-              <li><strong>25 июля:</strong> Брянск → Воронеж, около 450–550 км и 6–8 часов.</li>
-              <li><strong>26 июля:</strong> Воронеж → Ростов-на-Дону, около 570 км и 7–8 часов.</li>
-            </ul>
+            <h4>План на день</h4>
+            <ol class="timeline">
+              <li><time>05:30–06:00</time><span>Подъём, выселение из BonHotel, забрать заказанный с вечера ланч-бокс.</span></li>
+              <li><time>06:00</time><span>Выезд из Минска с полным баком.</span></li>
+              <li><time>08:30–09:00</time><span>Заправка и кофе в районе Орши; короткая разминка.</span></li>
+              <li><time>11:00–12:15</time><span>Остановка в Смоленске: нормальный обед и прогулка 15–20 минут без отдельной экскурсионной программы.</span></li>
+              <li><time>12:15–15:00</time><span>Продолжение пути в сторону Брянска.</span></li>
+              <li><time>15:00–15:20</time><span>Заправка, вода и короткий отдых.</span></li>
+              <li><time>17:00–18:00</time><span>Заселение в Брянске. Если к Смоленску накопилась усталость или ухудшилась дорога — завершить перегон там.</span></li>
+              <li><time>19:00–20:30</time><span>Ужин рядом с гостиницей и ранний сон.</span></li>
+            </ol>
           </div>
           <div class="facts">
-            <h4>Jimny</h4>
-            <p>Заправляться уже при половине бака, особенно перед длинными участками. Маршрут и дорожную обстановку проверить утром каждого дня.</p>
-            <p>24 июля никаких достопримечательностей не планировать: задача — спокойно пройти первый перегон.</p>
-            <a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Минск,+Беларусь&amp;destination=Ростов-на-Дону,+Россия&amp;waypoints=Смоленск,+Россия%7CБрянск,+Россия%7CВоронеж,+Россия&amp;travelmode=driving" target="_blank" rel="noreferrer">↗ Общий путь домой в Google Maps</a>
+            <h4>Где поесть</h4>
+            <div class="food-list">
+              <div class="food-option"><strong>Ланч-бокс BonHotel</strong><small>Заказать накануне: завтрак в машине не съест первый час дороги.</small></div>
+              <div class="food-option"><strong>«Русский двор» · Смоленск</strong><small>Русская кухня и полноценный обед в центре; основной вариант длинной остановки.</small></div>
+              <div class="food-option"><strong>«Хаген» или «Темница» · Смоленск</strong><small>Альтернативы для более спокойного обеда, если идёте с опережением графика.</small></div>
+              <div class="food-option"><strong>«Сибирь» · Брянск</strong><small>Ужин после заселения; заранее проверить время работы и расстояние от выбранного отеля.</small></div>
+            </div>
+            <div class="day-note">
+              <p><strong>Ночь пока не бронировать жёстко:</strong> выбрать отменяемый вариант в Брянске; Смоленск оставить запасным финишем дня.</p>
+              <p>Для Jimny заправляться при половине бака и проверять дорожную обстановку утром.</p>
+            </div>
+            <a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Минск,+Беларусь&amp;destination=Брянск,+Россия&amp;waypoints=Смоленск,+Россия&amp;travelmode=driving" target="_blank" rel="noreferrer">↗ Маршрут дня в Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="day" id="d25" data-date="25 июля" data-route="Брянск → Воронеж" data-drive="≈450–550 км · 6–8 ч" data-night="Воронеж">
+      <div class="day-date"><span class="num">25</span><span class="month">июля</span><span class="weekday">суббота</span></div>
+      <div class="day-body">
+        <h3>Брянск → Воронеж</h3>
+        <div class="chips"><span class="chip">≈450–550 км · 6–8 ч</span><span class="chip food">обед по маршруту · ужин в Воронеже</span><span class="chip stay">транзитная ночь</span></div>
+        <div class="day-grid">
+          <div>
+            <h4>План на день</h4>
+            <ol class="timeline">
+              <li><time>07:00–08:00</time><span>Завтрак, проверка маршрута, топлива и давления в шинах.</span></li>
+              <li><time>08:00</time><span>Выезд из Брянска. Если 24 июля остановились в Смоленске — стартовать в 06:30 и считать день более длинным.</span></li>
+              <li><time>10:30–11:00</time><span>Заправка, кофе и разминка.</span></li>
+              <li><time>12:30–13:30</time><span>Полноценный обед в Орле, Ливнах или другом удобном городе по фактическому маршруту навигатора.</span></li>
+              <li><time>13:30–16:30</time><span>Продолжение пути в Воронеж с одной короткой остановкой.</span></li>
+              <li><time>17:00–18:00</time><span>Заселение в транзитную гостиницу с парковкой.</span></li>
+              <li><time>19:00–20:30</time><span>Ужин и короткая прогулка по центру, если останутся силы.</span></li>
+              <li><time>21:30</time><span>Подготовить вещи и воду для раннего старта на М-4.</span></li>
+            </ol>
+          </div>
+          <div class="facts">
+            <h4>Где поесть</h4>
+            <div class="food-list">
+              <div class="food-option"><strong>Завтрак при гостинице</strong><small>Выбирать отель с ранним завтраком; иначе взять ланч-бокс и не ждать открытия кафе.</small></div>
+              <div class="food-option"><strong>Обед в Орле или Ливнах</strong><small>Конкретную точку выбрать утром по навигатору: рейтинг от 4,5, свежие отзывы и парковка важнее крюка к заранее выбранному кафе.</small></div>
+              <div class="food-option"><strong>«Гармошка» · Воронеж</strong><small>Русская кухня и обстоятельный ужин в спокойном формате.</small></div>
+              <div class="food-option"><strong>«1586» или «Балаган Сити» · Воронеж</strong><small>Первое — более современная кухня, второе — большой выбор и оживлённая атмосфера.</small></div>
+            </div>
+            <div class="day-note">
+              <p><strong>Ночь:</strong> отменяемая гостиница в Воронеже с собственной парковкой и удобным выездом на М-4.</p>
+              <p>Если первый день завершился в Смоленске, отказаться от вечерней прогулки и оставить только ужин и сон.</p>
+            </div>
+            <a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Брянск,+Россия&amp;destination=Воронеж,+Россия&amp;waypoints=Орёл,+Россия&amp;travelmode=driving" target="_blank" rel="noreferrer">↗ Маршрут дня в Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="day" id="d26" data-date="26 июля" data-route="Воронеж → Ростов-на-Дону" data-drive="≈570 км · 7–8 ч" data-night="дома">
+      <div class="day-date"><span class="num">26</span><span class="month">июля</span><span class="weekday">воскресенье</span></div>
+      <div class="day-body">
+        <h3>Воронеж → Ростов-на-Дону</h3>
+        <div class="chips"><span class="chip">≈570 км · 7–8 ч</span><span class="chip food">обед у М-4</span><span class="chip stay">вечером дома</span></div>
+        <div class="day-grid">
+          <div>
+            <h4>План на день</h4>
+            <ol class="timeline">
+              <li><time>06:30–07:15</time><span>Завтрак, выселение и заправка до полного бака.</span></li>
+              <li><time>07:30</time><span>Выезд из Воронежа на М-4.</span></li>
+              <li><time>10:00–10:20</time><span>Короткая остановка: кофе, вода и разминка.</span></li>
+              <li><time>11:30–12:30</time><span>Обед в Павловске или у трассы рядом с ним.</span></li>
+              <li><time>12:30–15:00</time><span>Переезд в сторону Миллерово.</span></li>
+              <li><time>15:00–15:20</time><span>Заправка и последний нормальный отдых перед Ростовом.</span></li>
+              <li><time>18:00–19:00</time><span>Прибытие домой с поправкой на воскресный трафик и ремонты.</span></li>
+            </ol>
+          </div>
+          <div class="facts">
+            <h4>Где поесть</h4>
+            <div class="food-list">
+              <div class="food-option"><strong>Завтрак в гостинице или ланч-бокс</strong><small>Нужен вариант, доступный до 07:00, чтобы не сдвигать старт.</small></div>
+              <div class="food-option"><strong>Кафе в Павловске · район М-4</strong><small>Основная длинная остановка дня; выбрать по свежим отзывам и удобству съезда.</small></div>
+              <div class="food-option"><strong>«Помпончик» или кафе крупной АЗС</strong><small>Предсказуемый быстрый запасной вариант без заезда в город.</small></div>
+              <div class="food-option"><strong>Перекус в машине</strong><small>Вода, фрукты, орехи и бутерброды с Комаровки — на случай очередей и пробок.</small></div>
+            </div>
+            <div class="day-note">
+              <p>Не пытаться доехать без остановок: после двух перегонных дней короткие разминки каждые 2–2,5 часа обязательны.</p>
+              <p><strong>Ночь:</strong> дома в Ростове-на-Дону.</p>
+            </div>
+            <a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=Воронеж,+Россия&amp;destination=Ростов-на-Дону,+Россия&amp;waypoints=Павловск,+Воронежская+область,+Россия&amp;travelmode=driving" target="_blank" rel="noreferrer">↗ Маршрут дня в Google Maps</a>
           </div>
         </div>
       </div>
@@ -780,7 +1014,7 @@
         <label class="check"><input type="checkbox" data-key="pushcha-hotel"><span>Гостиница №2<small>17 → 18 июля · оплачено</small></span></label>
         <label class="check"><input type="checkbox" data-key="grodno"><span>Hostel City<small>18 → 21 июля · оплачено</small></span></label>
         <label class="check"><input type="checkbox" data-key="minsk"><span>BonHotel<small>21 → 24 июля · оплачено</small></span></label>
-        <label class="check"><input type="checkbox" data-key="pushcha-tour"><span>Автобус по пуще<small>17 июля · подтвердить рейс</small></span></label>
+        <label class="check"><input type="checkbox" data-key="pushcha-tour"><span>Два велосипеда + маршрут «Большое путешествие»<small>17 июля · подтвердить прокат и время возврата</small></span></label>
         <label class="check"><input type="checkbox" data-key="neman"><span>Стеклозавод «Неман»<small>21 июля · производственная экскурсия</small></span></label>
         <label class="check"><input type="checkbox" data-key="mtz"><span>Экскурсия на МТЗ<small>22 июля · минимум за рабочий день</small></span></label>
         <label class="check"><input type="checkbox" data-key="canal"><span>Теплоход на канале<small>20 июля · проверить в воскресенье</small></span></label>
