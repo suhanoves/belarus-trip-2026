@@ -309,6 +309,28 @@
 
     .food-option strong { display: block; color: #795418; }
     .food-option small { display: block; margin-top: 2px; color: var(--muted); line-height: 1.35; }
+    .ticket-summary { color: var(--muted); font-size: .88rem; line-height: 1.45; }
+    .ticket-list { display: grid; gap: 8px; margin-bottom: 10px; }
+    .ticket-option {
+      padding: 10px 11px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fcfdfb;
+    }
+    .ticket-option.buy { border-color: #b8cfbe; background: var(--green-soft); }
+    .ticket-option.skip { background: #f7f5f0; }
+    .ticket-option strong { display: block; color: var(--green); }
+    .ticket-option.skip strong { color: var(--muted); }
+    .ticket-option small { display: block; margin-top: 3px; color: var(--muted); line-height: 1.35; }
+    .ticket-total {
+      margin: 10px 0 12px;
+      padding: 10px 11px;
+      border-radius: 12px;
+      color: #795418;
+      background: var(--gold-soft);
+      font-size: .88rem;
+      line-height: 1.4;
+    }
     .day-note { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
     .day-note p { margin: 0 0 7px; }
 
@@ -609,6 +631,20 @@
             </ol>
           </div>
           <div class="facts">
+            <h4>Билеты в крепости</h4>
+            <p class="ticket-summary"><strong>Территория:</strong> 08:00–24:00, вход свободный. На каждую музейную экспозицию нужен отдельный билет; цены ниже взяты из официального прейскуранта, действующего с 15.04.2026. Онлайн-билет действует 60 дней, в кассе соответствующего музея назвать ФИО или номер заказа.</p>
+            <div class="ticket-list">
+              <div class="ticket-option buy"><strong>Покупаем · Музей обороны</strong><small>09:00–18:00 · касса до 17:30 · наш слот 10:15–11:35 · 12 BYN/чел., 24 BYN за двоих.</small></div>
+              <div class="ticket-option buy"><strong>Покупаем · «Оборона Восточного форта»</strong><small>09:00–18:00 · касса до 17:30 · наш слот 12:40–13:55 · 12 BYN/чел., 24 BYN за двоих.</small></div>
+              <div class="ticket-option buy"><strong>Покупаем · «Музей войны — территория мира»</strong><small>10:00–19:00 · касса до 18:30 · наш слот 15:10–16:10 · 12 BYN/чел., 24 BYN за двоих.</small></div>
+              <div class="ticket-option buy"><strong>Покупаем · «Летопись Брестской крепости»</strong><small>10:00–19:00 · касса до 18:30 · наш слот 16:15–17:15 · 12 BYN/чел., 24 BYN за двоих.</small></div>
+              <div class="ticket-option skip"><strong>Не покупаем · Музей 5 форт</strong><small>09:00–18:00 · касса до 17:30 · 12 BYN/чел. Находится отдельно и не помещается в пеший день.</small></div>
+              <div class="ticket-option skip"><strong>Не покупаем · выставка оружия</strong><small>«Холодное и стрелковое оружие XVIII–XX вв.» · отдельные 4 BYN/чел.; в маршрут не включена.</small></div>
+              <div class="ticket-option skip"><strong>Закрыто · «Армейский клуб»</strong><small>Экспозиция временно закрыта, билет не нужен. Информационный центр также временно закрыт.</small></div>
+            </div>
+            <div class="ticket-total"><strong>Итого:</strong> четыре музея × 12 BYN × два человека = <strong>96 BYN</strong>. Если хотите снимать в залах: в прейскуранте указано 3 BYN для физического лица; в первой кассе уточнить, оплачивается ли съёмка отдельно в каждой экспозиции.</div>
+            <a class="map-link" href="https://www.brest-fortress.by/bilety" target="_blank" rel="noreferrer">↗ Официальная покупка билетов</a>
+            <a class="map-link" href="https://www.brest-fortress.by/posetitelyam/rezhim-raboty" target="_blank" rel="noreferrer">↗ Официальный режим работы</a>
             <h4>Где поесть</h4>
             <div class="food-list">
               <div class="food-option"><strong>Times Café · 08:30</strong><small>Проверенный вами вариант: французский завтрак, сырники, яйца, свежая выпечка и хороший кофе.</small></div>
@@ -621,7 +657,7 @@
               <p><strong>Что нельзя пропустить:</strong> Музей обороны — залы 3–7; «Территория мира» — залы 1–6; Восточный форт — лазарет, «Последний бой» и «Последние метры»; в «Летописи» — залы 4–6.</p>
               <p><strong>Что можно сократить:</strong> залы 8–10 Музея обороны менее уникальны. Если накопилось отставание, быстрее пройти первые три зала «Летописи», но оставить объёмные сцены и диорамы залов 4–6.</p>
               <p><strong>Не включено:</strong> «Армейский клуб» временно закрыт. Пятый форт интересный, но находится отдельно и ломает полностью пеший день; после Восточного форта его можно пропустить без сожаления.</p>
-              <p><strong>Часы крепости:</strong> территория открыта с 08:00, Музей обороны и Восточный форт — с 09:00, «Территория мира» и «Летопись» — с 10:00. Приезжать к 08:00 нет смысла: после завтрака вы подойдёте около 10:00, когда доступны все основные экспозиции.</p>
+              <p><strong>Почему подходим к 10:00:</strong> территория доступна с 08:00, но после завтрака вы придёте к моменту, когда уже открыты все четыре выбранные экспозиции.</p>
               <p><strong>Погода:</strong> сухо, утром около +21 °C, после 16:00 до +30 °C, вечером +28…+26 °C. Стартовать с 2 л воды на каждого; пополнить запас в Times и во время обеда.</p>
               <p><strong>Ночь:</strong> «Прибрежный» · оплачено.</p>
             </div>
