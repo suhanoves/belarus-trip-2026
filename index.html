@@ -546,7 +546,7 @@
     </article>
 
     <article class="day" id="d15" data-date="15 июля" data-route="Мир → Несвиж → Брест" data-drive="≈300 км · 4–4,5 ч" data-night="Брест · «Прибрежный»">
-      <div class="day-date"><span class="num">15</span><span class="month">июля</span><span class="weekday">среда · сегодня</span></div>
+      <div class="day-date"><span class="num">15</span><span class="month">июля</span><span class="weekday">среда</span></div>
       <div class="day-body">
         <h3>Мир → Несвиж → Брест</h3>
         <div class="chips"><span class="chip">≈300 км · 4–4,5 ч</span><span class="chip food">обед в Несвиже · ужин в Бресте</span><span class="chip stay">ночь: «Прибрежный» · оплачено</span></div>
@@ -1040,10 +1040,10 @@
 
     <section class="app-page panel" id="weather">
       <h3>Погода по маршруту</h3>
-      <div class="weather-meta"><span>Обновлено 15 июля · время местное · <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a></span><span>После 20 июля прогноз предварительный — перепроверять накануне</span></div>
+      <div class="weather-meta"><span>Обновлено 15 июля в 07:55 · время местное · <a href="https://open-meteo.com/en/docs" target="_blank" rel="noreferrer">Open-Meteo</a></span><span>После 20 июля прогноз предварительный — перепроверять накануне</span></div>
       <div class="weather-alerts">
         <div class="weather-alert rain"><strong>🌦 Сегодня</strong>В Мире и Несвиже после обеда возможен короткий дождь; к вечеру в Бресте сухо и ясно.</div>
-        <div class="weather-alert heat"><strong>☀️ Жара</strong>Брест 16 июля и веломаршрут в Пуще 17 июля: до +28…+29 °C. Вода и ранний старт обязательны.</div>
+        <div class="weather-alert heat"><strong>☀️ Жара</strong>Брест 16 июля и веломаршрут в Пуще 17 июля: до +30 °C. Велосипеды лучше взять как можно раньше.</div>
         <div class="weather-alert rain"><strong>⛈ Главный риск</strong>Гроза при въезде в Гродно вечером 18 июля. 20 июля на канале прохладно и прогноз нестабилен.</div>
       </div>
       <div class="weather-calendar">
@@ -1079,8 +1079,8 @@
           <div class="weather-date"><strong>19 июля</strong><span class="confidence">средне</span></div>
           <div class="weather-place">Гродно</div>
           <div class="weather-period"><b>Утро</b><span>⛅ около +17 · переменная облачность</span></div>
-          <div class="weather-period"><b>День</b><span>🌤 около +22 · преимущественно сухо</span></div>
-          <div class="weather-period"><b>Вечер</b><span>☀️ около +20 · ясно, небольшой риск дождя</span></div>
+          <div class="weather-period"><b>День</b><span>🌤 около +22 · переменная облачность, вероятность дождя до 45%</span></div>
+          <div class="weather-period"><b>Вечер</b><span>☀️ около +20 · прояснение, дождь всё ещё возможен</span></div>
         </article>
         <article class="weather-card">
           <div class="weather-date"><strong>20 июля</strong><span class="confidence">средне</span></div>
@@ -1089,8 +1089,8 @@
           <div class="weather-period"><b>День</b><span>☁️ около +15 · прохладно, риск дождя около 40%</span></div>
           <div class="weather-period"><b>Вечер</b><span>⛅ около +16 · облачность начнёт расходиться</span></div>
         </article>
-        <article class="weather-card">
-          <div class="weather-date"><strong>21 июля</strong><span class="confidence">средне</span></div>
+        <article class="weather-card far">
+          <div class="weather-date"><strong>21 июля</strong><span class="confidence prelim">предв.</span></div>
           <div class="weather-place">Гродно → Лида → Новогрудок → Минск</div>
           <div class="weather-period"><b>Утро</b><span>☀️ около +14 · в Гродно сухо</span></div>
           <div class="weather-period"><b>День</b><span>🌦 +16…+18 · в Лиде возможна морось, в Новогрудке прояснения</span></div>
@@ -1115,7 +1115,7 @@
           <div class="weather-place">Минск → Смоленск → Брянск</div>
           <div class="weather-period"><b>Утро</b><span>🌤 около +15 · выезд из Минска преимущественно сухой</span></div>
           <div class="weather-period"><b>День</b><span>☁️ около +17 · у Смоленска облачно, возможен дождь</span></div>
-          <div class="weather-period"><b>Вечер</b><span>☁️ около +16 · в Брянске облачно, дождь не исключён</span></div>
+          <div class="weather-period"><b>Вечер</b><span>☁️ около +16 · в Брянске облачно, вероятность дождя около 60%</span></div>
         </article>
         <article class="weather-card far">
           <div class="weather-date"><strong>25 июля</strong><span class="confidence prelim">предв.</span></div>
@@ -1137,8 +1137,19 @@
 
   <script>
     const days = [...document.querySelectorAll('.day')];
-    let currentIndex = Number(localStorage.getItem('belarus-trip-2026:day-index'));
-    if (!Number.isInteger(currentIndex) || currentIndex < 0 || currentIndex >= days.length) currentIndex = 2;
+    const now = new Date();
+    const todayId = now.getFullYear() === 2026 && now.getMonth() === 6 ? `d${now.getDate()}` : '';
+    const todayIndex = days.findIndex((day) => day.id === todayId);
+    if (todayIndex >= 0) {
+      const weekday = days[todayIndex].querySelector('.weekday');
+      weekday.textContent += ' · сегодня';
+    }
+
+    const savedDayIndex = localStorage.getItem('belarus-trip-2026:day-index');
+    let currentIndex = todayIndex >= 0 ? todayIndex : Number(savedDayIndex);
+    if (savedDayIndex === null || !Number.isInteger(currentIndex) || currentIndex < 0 || currentIndex >= days.length) {
+      currentIndex = todayIndex >= 0 ? todayIndex : 1;
+    }
 
     const currentDayLabel = document.getElementById('currentDayLabel');
     const currentDayRoute = document.getElementById('currentDayRoute');
