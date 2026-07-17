@@ -7,6 +7,7 @@
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
   <title>Беларусь на Jimny · 13–26 июля 2026</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
   <style>
     :root {
       --ink: #17211b;
@@ -354,6 +355,72 @@
     }
     .story summary { padding: 9px 11px; font-weight: 800; cursor: pointer; }
     .story p { margin: 0; padding: 0 11px 11px; color: #36443b; line-height: 1.48; }
+    .exact-map-panel {
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fcfdfb;
+      overflow: hidden;
+    }
+    .exact-map-panel > summary {
+      padding: 13px 15px;
+      color: var(--green);
+      font-weight: 850;
+      cursor: pointer;
+    }
+    .exact-map-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      padding: 0 12px 10px;
+    }
+    .map-action {
+      min-height: 38px;
+      padding: 8px 11px;
+      border: 1px solid #b8cfbe;
+      border-radius: 10px;
+      color: var(--green);
+      background: var(--green-soft);
+      font: inherit;
+      font-size: .86rem;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .map-action:hover { color: white; background: var(--green); }
+    .map-status { color: var(--muted); font-size: .82rem; }
+    #pushchaExactMap { height: 520px; background: #e9f2ec; }
+    .pushcha-marker {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border: 2px solid white;
+      border-radius: 50%;
+      color: white;
+      background: var(--green);
+      box-shadow: 0 2px 7px rgba(0,0,0,.28);
+      font-size: 11px;
+      font-weight: 850;
+    }
+    .pushcha-marker-hit { display: grid !important; place-items: center; }
+    .pushcha-user-marker {
+      width: 18px;
+      height: 18px;
+      border: 4px solid white;
+      border-radius: 50%;
+      background: #2878d0;
+      box-shadow: 0 0 0 2px rgba(40,120,208,.35);
+    }
+    .map-story-button {
+      display: inline-block;
+      margin-top: 5px;
+      color: var(--green);
+      font-weight: 800;
+      text-decoration: underline;
+      cursor: pointer;
+    }
 
     .panel { padding: 24px 26px; scroll-margin-top: 78px; }
     .panel + .panel { margin-top: 20px; }
@@ -467,6 +534,7 @@
       .calendar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .weather-calendar { grid-template-columns: 1fr; }
       .day-body, .panel { padding: 20px; }
+      #pushchaExactMap { height: 420px; }
       table { font-size: .88rem; }
     }
 
@@ -789,6 +857,15 @@
             </details>
           </div>
         </div>
+        <details class="exact-map-panel" id="pushchaMapPanel" open>
+          <summary>Карта исходного трека izi.TRAVEL · полная линия и 33 объекта</summary>
+          <div class="exact-map-tools">
+            <button class="map-action" id="locatePushcha" type="button">Показать моё местоположение</button>
+            <a class="map-action" href="belovezhskaya-pushcha-cycle.gpx" download>Скачать GPX: линия и 33 точки</a>
+            <span class="map-status" id="pushchaMapStatus" aria-live="polite">На развилках сверяйтесь с izi.TRAVEL и указателями парка; маркеры открывают рассказы.</span>
+          </div>
+          <div id="pushchaExactMap" role="region" aria-label="Карта веломаршрута по Беловежской пуще"></div>
+        </details>
       </div>
     </article>
 
@@ -1282,8 +1359,151 @@
     </section>
   </main>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script>
     const days = [...document.querySelectorAll('.day')];
+    const pushchaRoute = [
+      [52.569987, 23.803190], [52.570013, 23.805234], [52.569329, 23.810132],
+      [52.569211, 23.815614], [52.567757, 23.820829], [52.565879, 23.822245],
+      [52.564966, 23.824863], [52.564288, 23.830871], [52.562344, 23.833961],
+      [52.560583, 23.841535], [52.557100, 23.844561], [52.555495, 23.845333],
+      [52.551881, 23.853380], [52.551425, 23.855354], [52.548319, 23.855719],
+      [52.547367, 23.857092], [52.544783, 23.857864], [52.540581, 23.865074],
+      [52.540620, 23.871039], [52.546305, 23.891610], [52.551984, 23.891181],
+      [52.569282, 23.890666], [52.569282, 23.866591], [52.569242, 23.859445],
+      [52.581442, 23.859413], [52.628916, 23.859583], [52.625757, 23.859744],
+      [52.617134, 23.859567], [52.616994, 23.883197], [52.622459, 23.883175],
+      [52.617000, 23.883229], [52.616948, 23.892510], [52.616805, 23.891093],
+      [52.607684, 23.891136], [52.607645, 23.795553], [52.606564, 23.794244],
+      [52.603433, 23.792440], [52.578712, 23.790766], [52.569968, 23.802933]
+    ];
+    const pushchaStops = [
+      [52.570004, 23.803625, 'Красный дуб'],
+      [52.569307, 23.810466, 'Берёза с «головой зубра»'],
+      [52.569144, 23.815933, 'Дуб-«отшельник»'],
+      [52.565582, 23.823295, 'Исполинская ель'],
+      [52.564966, 23.827474, 'Лесной пруд'],
+      [52.561920, 23.836679, 'Сосны-великаны'],
+      [52.560747, 23.841528, 'Низинное болото'],
+      [52.552518, 23.851916, 'Дуб — свидетель веков'],
+      [52.545276, 23.858053, 'Урочище «Лавы»'],
+      [52.546356, 23.891743, 'Урочище «Язвы»'],
+      [52.552172, 23.891275, 'Победивший молнию'],
+      [52.552018, 23.891224, 'Дуб с капом'],
+      [52.569214, 23.890656, 'Бывшая узкоколейная железная дорога'],
+      [52.569240, 23.886933, 'Звериный переход'],
+      [52.569181, 23.859338, 'На лесной развилке'],
+      [52.573211, 23.859593, 'Царская поляна'],
+      [52.567651, 23.844072, 'Вековой сосновый лес'],
+      [52.568314, 23.824243, 'Болото «Татарское багно»'],
+      [52.573503, 23.829226, 'Урочище «Турлюй»'],
+      [52.579585, 23.852159, 'Атака короеда'],
+      [52.581665, 23.859401, 'Бывшая узкоколейная железная дорога'],
+      [52.584200, 23.859723, 'Вековой дубовый лес'],
+      [52.593156, 23.859532, 'Участок с лесными культурами'],
+      [52.605976, 23.859532, 'Новый лес на месте вырубок'],
+      [52.612439, 23.859489, 'Деревня Лядские'],
+      [52.625870, 23.859660, 'Лядское озеро'],
+      [52.622398, 23.883187, 'Дуб-патриарх'],
+      [52.617034, 23.883160, 'Сосна-долгожитель'],
+      [52.616952, 23.893181, 'Поместье Деда Мороза'],
+      [52.607678, 23.852579, 'Черноольховый лес'],
+      [52.607691, 23.816917, 'Следы урагана'],
+      [52.607587, 23.794761, 'Пограничная застава'],
+      [52.607155, 23.794335, 'Дорога «Брест — Беловеж»']
+    ];
+
+    const pushchaMapElement = document.getElementById('pushchaExactMap');
+    const pushchaMapStatus = document.getElementById('pushchaMapStatus');
+    let pushchaMap;
+    let pushchaLocationMarker;
+    let pushchaAccuracyCircle;
+    let pushchaGeolocationPending = false;
+    function initPushchaMap() {
+      if (pushchaMap || !pushchaMapElement) return;
+      if (!window.L) {
+        pushchaMapStatus.textContent = 'Карта не загрузилась; скачайте GPX или используйте izi.TRAVEL.';
+        return;
+      }
+      pushchaMap = L.map(pushchaMapElement, {scrollWheelZoom: false});
+      const tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(pushchaMap);
+      tileLayer.on('tileerror', () => {
+        pushchaMapStatus.textContent = 'Подложка не загрузилась: линия и точки остаются доступны, либо скачайте GPX.';
+      });
+      const routeLine = L.polyline(pushchaRoute, {color: '#c43d32', weight: 4, opacity: .92}).addTo(pushchaMap);
+      pushchaStops.forEach((stop, index) => {
+        const icon = L.divIcon({
+          className: 'pushcha-marker-hit',
+          html: `<span class="pushcha-marker">${index + 1}</span>`,
+          iconSize: [44, 44],
+          iconAnchor: [22, 22],
+          popupAnchor: [0, -16]
+        });
+        L.marker([stop[0], stop[1]], {icon, title: `${index + 1}. ${stop[2]}`})
+          .addTo(pushchaMap)
+          .bindPopup(`<strong>${index + 1}. ${stop[2]}</strong><br><button class="map-story-button" type="button" data-pushcha-story="${index}">Открыть рассказ</button>`);
+      });
+      pushchaMap.fitBounds(routeLine.getBounds(), {padding: [20, 20]});
+      document.getElementById('pushchaMapPanel').addEventListener('toggle', (event) => {
+        if (!event.currentTarget.open) return;
+        initPushchaMap();
+        setTimeout(() => {
+          pushchaMap.invalidateSize();
+          pushchaMap.fitBounds(pushchaRoute, {padding: [20, 20]});
+        }, 0);
+      });
+    }
+
+    document.addEventListener('click', (event) => {
+      const storyButton = event.target.closest('[data-pushcha-story]');
+      if (!storyButton) return;
+      const stories = document.querySelector('#d17 .route-stories');
+      const story = stories?.querySelectorAll('.story')[Number(storyButton.dataset.pushchaStory)];
+      if (!story || !stories) return;
+      pushchaMap?.closePopup();
+      stories.open = true;
+      story.open = true;
+      story.querySelector('summary')?.focus({preventScroll: true});
+      story.scrollIntoView({behavior: 'smooth', block: 'center'});
+    });
+
+    const locatePushchaButton = document.getElementById('locatePushcha');
+    locatePushchaButton?.addEventListener('click', () => {
+      initPushchaMap();
+      if (!pushchaMap || !navigator.geolocation) {
+        pushchaMapStatus.textContent = 'Геолокация в этом браузере недоступна.';
+        return;
+      }
+      if (pushchaGeolocationPending) return;
+      pushchaGeolocationPending = true;
+      locatePushchaButton.disabled = true;
+      pushchaMapStatus.textContent = 'Определяю местоположение…';
+      navigator.geolocation.getCurrentPosition((position) => {
+        pushchaGeolocationPending = false;
+        locatePushchaButton.disabled = false;
+        const here = [position.coords.latitude, position.coords.longitude];
+        if (pushchaLocationMarker) pushchaLocationMarker.remove();
+        if (pushchaAccuracyCircle) pushchaAccuracyCircle.remove();
+        const icon = L.divIcon({className: '', html: '<span class="pushcha-user-marker"></span>', iconSize: [18, 18], iconAnchor: [9, 9]});
+        pushchaLocationMarker = L.marker(here, {icon, title: 'Вы здесь'}).addTo(pushchaMap).bindPopup('Вы здесь').openPopup();
+        pushchaAccuracyCircle = L.circle(here, {radius: position.coords.accuracy, color: '#2878d0', weight: 1, fillOpacity: .08}).addTo(pushchaMap);
+        pushchaMap.setView(here, Math.max(pushchaMap.getZoom(), 16));
+        pushchaMapStatus.textContent = `Точность геолокации: около ${Math.round(position.coords.accuracy)} м.`;
+      }, (error) => {
+        pushchaGeolocationPending = false;
+        locatePushchaButton.disabled = false;
+        const messages = {
+          1: 'Доступ к геолокации запрещён.',
+          2: 'Не удалось определить местоположение.',
+          3: 'Телефон слишком долго определяет местоположение.'
+        };
+        pushchaMapStatus.textContent = messages[error.code] || 'Не удалось определить местоположение.';
+      }, {enableHighAccuracy: true, timeout: 12000, maximumAge: 15000});
+    });
+
     const now = new Date();
     const todayId = now.getFullYear() === 2026 && now.getMonth() === 6 ? `d${now.getDate()}` : '';
     const todayIndex = days.findIndex((day) => day.id === todayId);
@@ -1307,6 +1527,13 @@
       currentIndex = Math.max(0, Math.min(days.length - 1, index));
       days.forEach((day, i) => day.classList.toggle('active-day', i === currentIndex));
       const day = days[currentIndex];
+      if (day.contains(pushchaMapElement)) {
+        initPushchaMap();
+        setTimeout(() => {
+          pushchaMap.invalidateSize();
+          pushchaMap.fitBounds(pushchaRoute, {padding: [20, 20]});
+        }, 0);
+      }
       currentDayLabel.textContent = day.dataset.date + ' · ' + day.querySelector('.weekday').textContent;
       currentDayRoute.textContent = day.dataset.route;
       prevDay.disabled = currentIndex === 0;

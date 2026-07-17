@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="belarus-trip-2026" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>Беловежская пуща — велокруг izi.TRAVEL</name>
+    <desc>Полная линия из 39 координат и 33 пронумерованные точки маршрута.</desc>
+  </metadata>
+  <wpt lat="52.570004" lon="23.803625"><name>01 Красный дуб</name></wpt>
+  <wpt lat="52.569307" lon="23.810466"><name>02 Берёза с головой зубра</name></wpt>
+  <wpt lat="52.569144" lon="23.815933"><name>03 Дуб-отшельник</name></wpt>
+  <wpt lat="52.565582" lon="23.823295"><name>04 Исполинская ель</name></wpt>
+  <wpt lat="52.564966" lon="23.827474"><name>05 Лесной пруд</name></wpt>
+  <wpt lat="52.561920" lon="23.836679"><name>06 Сосны-великаны</name></wpt>
+  <wpt lat="52.560747" lon="23.841528"><name>07 Низинное болото</name></wpt>
+  <wpt lat="52.552518" lon="23.851916"><name>08 Дуб — свидетель веков</name></wpt>
+  <wpt lat="52.545276" lon="23.858053"><name>09 Урочище Лавы</name></wpt>
+  <wpt lat="52.546356" lon="23.891743"><name>10 Урочище Язвы</name></wpt>
+  <wpt lat="52.552172" lon="23.891275"><name>11 Победивший молнию</name></wpt>
+  <wpt lat="52.552018" lon="23.891224"><name>12 Дуб с капом</name></wpt>
+  <wpt lat="52.569214" lon="23.890656"><name>13 Бывшая узкоколейная железная дорога</name></wpt>
+  <wpt lat="52.569240" lon="23.886933"><name>14 Звериный переход</name></wpt>
+  <wpt lat="52.569181" lon="23.859338"><name>15 На лесной развилке</name></wpt>
+  <wpt lat="52.573211" lon="23.859593"><name>16 Царская поляна</name></wpt>
+  <wpt lat="52.567651" lon="23.844072"><name>17 Вековой сосновый лес</name></wpt>
+  <wpt lat="52.568314" lon="23.824243"><name>18 Болото Татарское багно</name></wpt>
+  <wpt lat="52.573503" lon="23.829226"><name>19 Урочище Турлюй</name></wpt>
+  <wpt lat="52.579585" lon="23.852159"><name>20 Атака короеда</name></wpt>
+  <wpt lat="52.581665" lon="23.859401"><name>21 Бывшая узкоколейная железная дорога</name></wpt>
+  <wpt lat="52.584200" lon="23.859723"><name>22 Вековой дубовый лес</name></wpt>
+  <wpt lat="52.593156" lon="23.859532"><name>23 Участок с лесными культурами</name></wpt>
+  <wpt lat="52.605976" lon="23.859532"><name>24 Новый лес на месте вырубок</name></wpt>
+  <wpt lat="52.612439" lon="23.859489"><name>25 Деревня Лядские</name></wpt>
+  <wpt lat="52.625870" lon="23.859660"><name>26 Лядское озеро</name></wpt>
+  <wpt lat="52.622398" lon="23.883187"><name>27 Дуб-патриарх</name></wpt>
+  <wpt lat="52.617034" lon="23.883160"><name>28 Сосна-долгожитель</name></wpt>
+  <wpt lat="52.616952" lon="23.893181"><name>29 Поместье Деда Мороза</name></wpt>
+  <wpt lat="52.607678" lon="23.852579"><name>30 Черноольховый лес</name></wpt>
+  <wpt lat="52.607691" lon="23.816917"><name>31 Следы урагана</name></wpt>
+  <wpt lat="52.607587" lon="23.794761"><name>32 Пограничная застава</name></wpt>
+  <wpt lat="52.607155" lon="23.794335"><name>33 Дорога Брест — Беловеж</name></wpt>
+  <trk>
+    <name>Беловежская пуща — полный велокруг</name>
+    <trkseg>
+      <trkpt lat="52.569987" lon="23.803190"/>
+      <trkpt lat="52.570013" lon="23.805234"/>
+      <trkpt lat="52.569329" lon="23.810132"/>
+      <trkpt lat="52.569211" lon="23.815614"/>
+      <trkpt lat="52.567757" lon="23.820829"/>
+      <trkpt lat="52.565879" lon="23.822245"/>
+      <trkpt lat="52.564966" lon="23.824863"/>
+      <trkpt lat="52.564288" lon="23.830871"/>
+      <trkpt lat="52.562344" lon="23.833961"/>
+      <trkpt lat="52.560583" lon="23.841535"/>
+      <trkpt lat="52.557100" lon="23.844561"/>
+      <trkpt lat="52.555495" lon="23.845333"/>
+      <trkpt lat="52.551881" lon="23.853380"/>
+      <trkpt lat="52.551425" lon="23.855354"/>
+      <trkpt lat="52.548319" lon="23.855719"/>
+      <trkpt lat="52.547367" lon="23.857092"/>
+      <trkpt lat="52.544783" lon="23.857864"/>
+      <trkpt lat="52.540581" lon="23.865074"/>
+      <trkpt lat="52.540620" lon="23.871039"/>
+      <trkpt lat="52.546305" lon="23.891610"/>
+      <trkpt lat="52.551984" lon="23.891181"/>
+      <trkpt lat="52.569282" lon="23.890666"/>
+      <trkpt lat="52.569282" lon="23.866591"/>
+      <trkpt lat="52.569242" lon="23.859445"/>
+      <trkpt lat="52.581442" lon="23.859413"/>
+      <trkpt lat="52.628916" lon="23.859583"/>
+      <trkpt lat="52.625757" lon="23.859744"/>
+      <trkpt lat="52.617134" lon="23.859567"/>
+      <trkpt lat="52.616994" lon="23.883197"/>
+      <trkpt lat="52.622459" lon="23.883175"/>
+      <trkpt lat="52.617000" lon="23.883229"/>
+      <trkpt lat="52.616948" lon="23.892510"/>
+      <trkpt lat="52.616805" lon="23.891093"/>
+      <trkpt lat="52.607684" lon="23.891136"/>
+      <trkpt lat="52.607645" lon="23.795553"/>
+      <trkpt lat="52.606564" lon="23.794244"/>
+      <trkpt lat="52.603433" lon="23.792440"/>
+      <trkpt lat="52.578712" lon="23.790766"/>
+      <trkpt lat="52.569968" lon="23.802933"/>
+    </trkseg>
+  </trk>
+</gpx>
